@@ -1,0 +1,5 @@
+Lotto
+
+1. Eingabe über GUI
+2. Datenbankanbindung getippte Zahlen in Datenbank (MS SQL Server oder Xampp)
+
