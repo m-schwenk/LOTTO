@@ -1,0 +1,7 @@
+Start: 14/09/16 1400
+Anwesend: Joachim Harms, Angelina Kokovykhina, Michael Kohlhepp, Maya Schwenk
+Abwesend: Maurice Besancon
+
+- Vorgangsliste korrigiert
+- Gantt Diagramm aktualisiert
+- Kapazitätsplanung durchgeführt
