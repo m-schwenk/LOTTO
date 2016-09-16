@@ -7,11 +7,7 @@ namespace Lotto
 {
     public class Lotto
     {
-<<<<<<< HEAD
-        private int lottoschein;
-=======
         private Lottoschein lottoschein;
->>>>>>> origin/master
 
         public void SpielEinlesen(bool istSuperzahl)
         {
