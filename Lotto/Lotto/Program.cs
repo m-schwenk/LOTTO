@@ -8,6 +8,16 @@ namespace Lotto
 {
     static class Program
     {
+        private static Lottoschein lottoschein
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
