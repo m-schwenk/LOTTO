@@ -1,0 +1,7 @@
+// TODO proper C# implementation
+
+public interface IDatabaseAdapter
+
+public void write(String[] lottozahlen)
+
+public String[] read()
