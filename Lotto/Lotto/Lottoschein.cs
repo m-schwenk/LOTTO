@@ -2,61 +2,63 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-<<<<<<< HEAD
 using System.Collections; 
-=======
-using System.Collections;
->>>>>>> origin/master
 
 namespace Lotto
 {
     public class Lottoschein
     {
-        private ArrayList tipps;
+        
         private int superzahl;
+        private ArrayList spiele;
+        private int[] spiel;
 
-        public int Superzahl
+        public string Losnummer { get; set; }
+
+        private int _superZahl;
+
+        public int SuperZahl
         {
-            get { return superzahl; }
-            set { superzahl = value; }
+            get { return _superZahl; }
+            set
+            {
+                char last = Losnummer[Losnummer.Length - 1];
+                _superZahl = Convert.ToInt32(last);
+            }
         }
 
-<<<<<<< HEAD
-        public int GetSuperzahl()
-=======
-        public void AddTipp(int [] tipp)
->>>>>>> origin/master
-        {
-            throw new System.NotImplementedException();
-        }
+        // Konstruktor: 
 
-<<<<<<< HEAD
-        public void SetSuperzahl()
+        public Lottoschein(string losnummer)
         {
-            throw new System.NotImplementedException();
+            this.Losnummer = losnummer;
         }
+        
+        
+        
 
-        public void Add(int[] tipp)
-        {
-            throw new NotImplementedException();
-        }
+        //public int TippNummer { get; set; }
 
-        public void UpdateTipp()
-        {
-            throw new System.NotImplementedException();
-        }
+        //public int Superzahl
+        //{
+        //    get { return superzahl; }
+        //    set { superzahl = value; }
+        //}
 
-        public int tippnummer()
-        {
-            throw new System.NotImplementedException();
-        }
+        //public void Add(int[] tipp)
+        //{
+        //    tipps.Add(tipp); 
+        //}
 
-        public int[] tipp()
-=======
-        public void UpdateTipp(int tippnummer, int[] tipp)
->>>>>>> origin/master
-        {
-            throw new System.NotImplementedException();
-        }
+        //public void RemoveTipp(int pos)
+        //{
+        //    tipps.RemoveAt(pos);              
+        //}
+
+        //public void UpdateTipp(int[] tippNeu)
+        //{
+        //    tipps.RemoveAt(tipps.Count - 1);
+        //    tipps.Add(tippNeu); 
+        //}       
     }
 }

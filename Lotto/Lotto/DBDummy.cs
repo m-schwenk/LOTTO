@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Lotto
 {
-    public interface IDatabaseAdapter
+    class DBDummy
     {
-        Lottoschein LeseAusDB(); 
+        
+        int[] tipp = new int[6];  
     }
 }
