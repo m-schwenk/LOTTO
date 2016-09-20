@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+<<<<<<< HEAD
 using System.Collections; 
+=======
+using System.Collections;
+>>>>>>> origin/master
 
 namespace Lotto
 {
@@ -15,6 +19,7 @@ namespace Lotto
 
         public string Losnummer { get; set; }
 
+<<<<<<< HEAD
         private int _superZahl;
 
         public int SuperZahl
@@ -60,5 +65,16 @@ namespace Lotto
         //    tipps.RemoveAt(tipps.Count - 1);
         //    tipps.Add(tippNeu); 
         //}       
+=======
+        public void AddTipp(int [] tipp)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateTipp(int tippnummer, int[] tipp)
+        {
+            throw new System.NotImplementedException();
+        }
+>>>>>>> origin/master
     }
 }
