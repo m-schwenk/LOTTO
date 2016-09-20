@@ -47,6 +47,18 @@ namespace Lotto
             SetRowVisibility(row,vis);
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Lottoschein lotto = new Lottoschein(textBox1.Text);
+
+           //to do
+        }
+
 
 
     }
