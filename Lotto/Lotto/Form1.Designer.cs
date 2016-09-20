@@ -30,7 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tippsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.numericUpDown73 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown74 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown75 = new System.Windows.Forms.NumericUpDown();
@@ -116,9 +116,12 @@
             this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tippsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown73)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown74)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown75)).BeginInit();
@@ -208,7 +211,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.tippsPanel);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -217,117 +223,117 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // tippsPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 7;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown73, 1, 11);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown74, 2, 11);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown75, 3, 11);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown76, 4, 11);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown77, 5, 11);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown78, 6, 11);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown67, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown68, 2, 10);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown69, 3, 10);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown70, 4, 10);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown71, 5, 10);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown72, 6, 10);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown61, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown62, 2, 9);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown63, 3, 9);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown64, 4, 9);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown65, 5, 9);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown66, 6, 9);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown55, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown56, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown57, 3, 8);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown58, 4, 8);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown59, 5, 8);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown60, 6, 8);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown49, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown50, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown51, 3, 7);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown52, 4, 7);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown53, 5, 7);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown54, 6, 7);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown43, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown44, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown45, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown46, 4, 6);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown47, 5, 6);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown48, 6, 6);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown37, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown38, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown39, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown40, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown41, 5, 5);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown42, 6, 5);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown31, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown32, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown33, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown34, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown35, 5, 4);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown36, 6, 4);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown25, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown26, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown27, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown28, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown29, 5, 3);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown30, 6, 3);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown19, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown20, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown21, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown22, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown23, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown24, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown13, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown14, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown15, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown16, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown17, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown18, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox9, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox10, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox11, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox12, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox13, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox14, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox15, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox16, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox3, 0, 10);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox4, 0, 11);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown7, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown8, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown12, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown9, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown11, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown10, 4, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 12;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(314, 312);
-            this.tableLayoutPanel1.TabIndex = 96;
+            this.tippsPanel.ColumnCount = 7;
+            this.tippsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tippsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tippsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tippsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tippsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tippsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tippsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tippsPanel.Controls.Add(this.numericUpDown73, 1, 11);
+            this.tippsPanel.Controls.Add(this.numericUpDown74, 2, 11);
+            this.tippsPanel.Controls.Add(this.numericUpDown75, 3, 11);
+            this.tippsPanel.Controls.Add(this.numericUpDown76, 4, 11);
+            this.tippsPanel.Controls.Add(this.numericUpDown77, 5, 11);
+            this.tippsPanel.Controls.Add(this.numericUpDown78, 6, 11);
+            this.tippsPanel.Controls.Add(this.numericUpDown67, 1, 10);
+            this.tippsPanel.Controls.Add(this.numericUpDown68, 2, 10);
+            this.tippsPanel.Controls.Add(this.numericUpDown69, 3, 10);
+            this.tippsPanel.Controls.Add(this.numericUpDown70, 4, 10);
+            this.tippsPanel.Controls.Add(this.numericUpDown71, 5, 10);
+            this.tippsPanel.Controls.Add(this.numericUpDown72, 6, 10);
+            this.tippsPanel.Controls.Add(this.numericUpDown61, 1, 9);
+            this.tippsPanel.Controls.Add(this.numericUpDown62, 2, 9);
+            this.tippsPanel.Controls.Add(this.numericUpDown63, 3, 9);
+            this.tippsPanel.Controls.Add(this.numericUpDown64, 4, 9);
+            this.tippsPanel.Controls.Add(this.numericUpDown65, 5, 9);
+            this.tippsPanel.Controls.Add(this.numericUpDown66, 6, 9);
+            this.tippsPanel.Controls.Add(this.numericUpDown55, 1, 8);
+            this.tippsPanel.Controls.Add(this.numericUpDown56, 2, 8);
+            this.tippsPanel.Controls.Add(this.numericUpDown57, 3, 8);
+            this.tippsPanel.Controls.Add(this.numericUpDown58, 4, 8);
+            this.tippsPanel.Controls.Add(this.numericUpDown59, 5, 8);
+            this.tippsPanel.Controls.Add(this.numericUpDown60, 6, 8);
+            this.tippsPanel.Controls.Add(this.numericUpDown49, 1, 7);
+            this.tippsPanel.Controls.Add(this.numericUpDown50, 2, 7);
+            this.tippsPanel.Controls.Add(this.numericUpDown51, 3, 7);
+            this.tippsPanel.Controls.Add(this.numericUpDown52, 4, 7);
+            this.tippsPanel.Controls.Add(this.numericUpDown53, 5, 7);
+            this.tippsPanel.Controls.Add(this.numericUpDown54, 6, 7);
+            this.tippsPanel.Controls.Add(this.numericUpDown43, 1, 6);
+            this.tippsPanel.Controls.Add(this.numericUpDown44, 2, 6);
+            this.tippsPanel.Controls.Add(this.numericUpDown45, 3, 6);
+            this.tippsPanel.Controls.Add(this.numericUpDown46, 4, 6);
+            this.tippsPanel.Controls.Add(this.numericUpDown47, 5, 6);
+            this.tippsPanel.Controls.Add(this.numericUpDown48, 6, 6);
+            this.tippsPanel.Controls.Add(this.numericUpDown37, 1, 5);
+            this.tippsPanel.Controls.Add(this.numericUpDown38, 2, 5);
+            this.tippsPanel.Controls.Add(this.numericUpDown39, 3, 5);
+            this.tippsPanel.Controls.Add(this.numericUpDown40, 4, 5);
+            this.tippsPanel.Controls.Add(this.numericUpDown41, 5, 5);
+            this.tippsPanel.Controls.Add(this.numericUpDown42, 6, 5);
+            this.tippsPanel.Controls.Add(this.numericUpDown31, 1, 4);
+            this.tippsPanel.Controls.Add(this.numericUpDown32, 2, 4);
+            this.tippsPanel.Controls.Add(this.numericUpDown33, 3, 4);
+            this.tippsPanel.Controls.Add(this.numericUpDown34, 4, 4);
+            this.tippsPanel.Controls.Add(this.numericUpDown35, 5, 4);
+            this.tippsPanel.Controls.Add(this.numericUpDown36, 6, 4);
+            this.tippsPanel.Controls.Add(this.numericUpDown25, 1, 3);
+            this.tippsPanel.Controls.Add(this.numericUpDown26, 2, 3);
+            this.tippsPanel.Controls.Add(this.numericUpDown27, 3, 3);
+            this.tippsPanel.Controls.Add(this.numericUpDown28, 4, 3);
+            this.tippsPanel.Controls.Add(this.numericUpDown29, 5, 3);
+            this.tippsPanel.Controls.Add(this.numericUpDown30, 6, 3);
+            this.tippsPanel.Controls.Add(this.numericUpDown19, 1, 2);
+            this.tippsPanel.Controls.Add(this.numericUpDown20, 2, 2);
+            this.tippsPanel.Controls.Add(this.numericUpDown21, 3, 2);
+            this.tippsPanel.Controls.Add(this.numericUpDown22, 4, 2);
+            this.tippsPanel.Controls.Add(this.numericUpDown23, 5, 2);
+            this.tippsPanel.Controls.Add(this.numericUpDown24, 6, 2);
+            this.tippsPanel.Controls.Add(this.numericUpDown13, 1, 1);
+            this.tippsPanel.Controls.Add(this.numericUpDown14, 2, 1);
+            this.tippsPanel.Controls.Add(this.numericUpDown15, 3, 1);
+            this.tippsPanel.Controls.Add(this.numericUpDown16, 4, 1);
+            this.tippsPanel.Controls.Add(this.numericUpDown17, 5, 1);
+            this.tippsPanel.Controls.Add(this.numericUpDown18, 6, 1);
+            this.tippsPanel.Controls.Add(this.checkBox9, 0, 1);
+            this.tippsPanel.Controls.Add(this.checkBox1, 0, 0);
+            this.tippsPanel.Controls.Add(this.checkBox2, 0, 2);
+            this.tippsPanel.Controls.Add(this.checkBox10, 0, 3);
+            this.tippsPanel.Controls.Add(this.checkBox11, 0, 4);
+            this.tippsPanel.Controls.Add(this.checkBox12, 0, 5);
+            this.tippsPanel.Controls.Add(this.checkBox13, 0, 6);
+            this.tippsPanel.Controls.Add(this.checkBox14, 0, 7);
+            this.tippsPanel.Controls.Add(this.checkBox15, 0, 8);
+            this.tippsPanel.Controls.Add(this.checkBox16, 0, 9);
+            this.tippsPanel.Controls.Add(this.checkBox3, 0, 10);
+            this.tippsPanel.Controls.Add(this.checkBox4, 0, 11);
+            this.tippsPanel.Controls.Add(this.numericUpDown7, 1, 0);
+            this.tippsPanel.Controls.Add(this.numericUpDown8, 2, 0);
+            this.tippsPanel.Controls.Add(this.numericUpDown12, 6, 0);
+            this.tippsPanel.Controls.Add(this.numericUpDown9, 3, 0);
+            this.tippsPanel.Controls.Add(this.numericUpDown11, 5, 0);
+            this.tippsPanel.Controls.Add(this.numericUpDown10, 4, 0);
+            this.tippsPanel.Location = new System.Drawing.Point(6, 6);
+            this.tippsPanel.Name = "tippsPanel";
+            this.tippsPanel.RowCount = 12;
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tippsPanel.Size = new System.Drawing.Size(314, 312);
+            this.tippsPanel.TabIndex = 96;
             // 
             // numericUpDown73
             // 
@@ -350,7 +356,6 @@
             0,
             0,
             0});
-            this.numericUpDown73.Visible = false;
             // 
             // numericUpDown74
             // 
@@ -373,7 +378,6 @@
             0,
             0,
             0});
-            this.numericUpDown74.Visible = false;
             // 
             // numericUpDown75
             // 
@@ -396,7 +400,6 @@
             0,
             0,
             0});
-            this.numericUpDown75.Visible = false;
             // 
             // numericUpDown76
             // 
@@ -419,7 +422,6 @@
             0,
             0,
             0});
-            this.numericUpDown76.Visible = false;
             // 
             // numericUpDown77
             // 
@@ -442,7 +444,6 @@
             0,
             0,
             0});
-            this.numericUpDown77.Visible = false;
             // 
             // numericUpDown78
             // 
@@ -487,7 +488,6 @@
             0,
             0,
             0});
-            this.numericUpDown67.Visible = false;
             // 
             // numericUpDown68
             // 
@@ -510,7 +510,6 @@
             0,
             0,
             0});
-            this.numericUpDown68.Visible = false;
             // 
             // numericUpDown69
             // 
@@ -533,7 +532,6 @@
             0,
             0,
             0});
-            this.numericUpDown69.Visible = false;
             // 
             // numericUpDown70
             // 
@@ -556,7 +554,6 @@
             0,
             0,
             0});
-            this.numericUpDown70.Visible = false;
             // 
             // numericUpDown71
             // 
@@ -579,7 +576,6 @@
             0,
             0,
             0});
-            this.numericUpDown71.Visible = false;
             // 
             // numericUpDown72
             // 
@@ -602,7 +598,6 @@
             0,
             0,
             0});
-            this.numericUpDown72.Visible = false;
             // 
             // numericUpDown61
             // 
@@ -625,7 +620,6 @@
             0,
             0,
             0});
-            this.numericUpDown61.Visible = false;
             // 
             // numericUpDown62
             // 
@@ -648,7 +642,6 @@
             0,
             0,
             0});
-            this.numericUpDown62.Visible = false;
             // 
             // numericUpDown63
             // 
@@ -671,7 +664,6 @@
             0,
             0,
             0});
-            this.numericUpDown63.Visible = false;
             // 
             // numericUpDown64
             // 
@@ -694,7 +686,6 @@
             0,
             0,
             0});
-            this.numericUpDown64.Visible = false;
             // 
             // numericUpDown65
             // 
@@ -717,7 +708,6 @@
             0,
             0,
             0});
-            this.numericUpDown65.Visible = false;
             // 
             // numericUpDown66
             // 
@@ -740,7 +730,6 @@
             0,
             0,
             0});
-            this.numericUpDown66.Visible = false;
             // 
             // numericUpDown55
             // 
@@ -763,7 +752,6 @@
             0,
             0,
             0});
-            this.numericUpDown55.Visible = false;
             // 
             // numericUpDown56
             // 
@@ -786,7 +774,6 @@
             0,
             0,
             0});
-            this.numericUpDown56.Visible = false;
             // 
             // numericUpDown57
             // 
@@ -809,7 +796,6 @@
             0,
             0,
             0});
-            this.numericUpDown57.Visible = false;
             // 
             // numericUpDown58
             // 
@@ -832,7 +818,6 @@
             0,
             0,
             0});
-            this.numericUpDown58.Visible = false;
             // 
             // numericUpDown59
             // 
@@ -855,7 +840,6 @@
             0,
             0,
             0});
-            this.numericUpDown59.Visible = false;
             // 
             // numericUpDown60
             // 
@@ -878,7 +862,6 @@
             0,
             0,
             0});
-            this.numericUpDown60.Visible = false;
             // 
             // numericUpDown49
             // 
@@ -901,7 +884,6 @@
             0,
             0,
             0});
-            this.numericUpDown49.Visible = false;
             // 
             // numericUpDown50
             // 
@@ -924,7 +906,6 @@
             0,
             0,
             0});
-            this.numericUpDown50.Visible = false;
             // 
             // numericUpDown51
             // 
@@ -947,7 +928,6 @@
             0,
             0,
             0});
-            this.numericUpDown51.Visible = false;
             // 
             // numericUpDown52
             // 
@@ -970,7 +950,6 @@
             0,
             0,
             0});
-            this.numericUpDown52.Visible = false;
             // 
             // numericUpDown53
             // 
@@ -993,7 +972,6 @@
             0,
             0,
             0});
-            this.numericUpDown53.Visible = false;
             // 
             // numericUpDown54
             // 
@@ -1016,7 +994,6 @@
             0,
             0,
             0});
-            this.numericUpDown54.Visible = false;
             // 
             // numericUpDown43
             // 
@@ -1039,7 +1016,6 @@
             0,
             0,
             0});
-            this.numericUpDown43.Visible = false;
             // 
             // numericUpDown44
             // 
@@ -1062,7 +1038,6 @@
             0,
             0,
             0});
-            this.numericUpDown44.Visible = false;
             // 
             // numericUpDown45
             // 
@@ -1085,7 +1060,6 @@
             0,
             0,
             0});
-            this.numericUpDown45.Visible = false;
             // 
             // numericUpDown46
             // 
@@ -1108,7 +1082,6 @@
             0,
             0,
             0});
-            this.numericUpDown46.Visible = false;
             // 
             // numericUpDown47
             // 
@@ -1131,7 +1104,6 @@
             0,
             0,
             0});
-            this.numericUpDown47.Visible = false;
             // 
             // numericUpDown48
             // 
@@ -1154,7 +1126,6 @@
             0,
             0,
             0});
-            this.numericUpDown48.Visible = false;
             // 
             // numericUpDown37
             // 
@@ -1177,7 +1148,6 @@
             0,
             0,
             0});
-            this.numericUpDown37.Visible = false;
             // 
             // numericUpDown38
             // 
@@ -1200,7 +1170,6 @@
             0,
             0,
             0});
-            this.numericUpDown38.Visible = false;
             // 
             // numericUpDown39
             // 
@@ -1223,7 +1192,6 @@
             0,
             0,
             0});
-            this.numericUpDown39.Visible = false;
             // 
             // numericUpDown40
             // 
@@ -1246,7 +1214,6 @@
             0,
             0,
             0});
-            this.numericUpDown40.Visible = false;
             // 
             // numericUpDown41
             // 
@@ -1269,7 +1236,6 @@
             0,
             0,
             0});
-            this.numericUpDown41.Visible = false;
             // 
             // numericUpDown42
             // 
@@ -1292,7 +1258,6 @@
             0,
             0,
             0});
-            this.numericUpDown42.Visible = false;
             // 
             // numericUpDown31
             // 
@@ -1315,7 +1280,6 @@
             0,
             0,
             0});
-            this.numericUpDown31.Visible = false;
             // 
             // numericUpDown32
             // 
@@ -1338,7 +1302,6 @@
             0,
             0,
             0});
-            this.numericUpDown32.Visible = false;
             // 
             // numericUpDown33
             // 
@@ -1361,7 +1324,6 @@
             0,
             0,
             0});
-            this.numericUpDown33.Visible = false;
             // 
             // numericUpDown34
             // 
@@ -1384,7 +1346,6 @@
             0,
             0,
             0});
-            this.numericUpDown34.Visible = false;
             // 
             // numericUpDown35
             // 
@@ -1407,7 +1368,6 @@
             0,
             0,
             0});
-            this.numericUpDown35.Visible = false;
             // 
             // numericUpDown36
             // 
@@ -1430,7 +1390,6 @@
             0,
             0,
             0});
-            this.numericUpDown36.Visible = false;
             // 
             // numericUpDown25
             // 
@@ -1453,7 +1412,6 @@
             0,
             0,
             0});
-            this.numericUpDown25.Visible = false;
             // 
             // numericUpDown26
             // 
@@ -1476,7 +1434,6 @@
             0,
             0,
             0});
-            this.numericUpDown26.Visible = false;
             // 
             // numericUpDown27
             // 
@@ -1499,7 +1456,6 @@
             0,
             0,
             0});
-            this.numericUpDown27.Visible = false;
             // 
             // numericUpDown28
             // 
@@ -1522,7 +1478,6 @@
             0,
             0,
             0});
-            this.numericUpDown28.Visible = false;
             // 
             // numericUpDown29
             // 
@@ -1545,7 +1500,6 @@
             0,
             0,
             0});
-            this.numericUpDown29.Visible = false;
             // 
             // numericUpDown30
             // 
@@ -1568,7 +1522,6 @@
             0,
             0,
             0});
-            this.numericUpDown30.Visible = false;
             // 
             // numericUpDown19
             // 
@@ -1591,7 +1544,6 @@
             0,
             0,
             0});
-            this.numericUpDown19.Visible = false;
             // 
             // numericUpDown20
             // 
@@ -1614,7 +1566,6 @@
             0,
             0,
             0});
-            this.numericUpDown20.Visible = false;
             // 
             // numericUpDown21
             // 
@@ -1637,7 +1588,6 @@
             0,
             0,
             0});
-            this.numericUpDown21.Visible = false;
             // 
             // numericUpDown22
             // 
@@ -1660,7 +1610,6 @@
             0,
             0,
             0});
-            this.numericUpDown22.Visible = false;
             // 
             // numericUpDown23
             // 
@@ -1683,7 +1632,6 @@
             0,
             0,
             0});
-            this.numericUpDown23.Visible = false;
             // 
             // numericUpDown24
             // 
@@ -1706,7 +1654,6 @@
             0,
             0,
             0});
-            this.numericUpDown24.Visible = false;
             // 
             // numericUpDown13
             // 
@@ -1729,7 +1676,6 @@
             0,
             0,
             0});
-            this.numericUpDown13.Visible = false;
             // 
             // numericUpDown14
             // 
@@ -1752,7 +1698,6 @@
             0,
             0,
             0});
-            this.numericUpDown14.Visible = false;
             // 
             // numericUpDown15
             // 
@@ -1775,7 +1720,6 @@
             0,
             0,
             0});
-            this.numericUpDown15.Visible = false;
             // 
             // numericUpDown16
             // 
@@ -1798,7 +1742,6 @@
             0,
             0,
             0});
-            this.numericUpDown16.Visible = false;
             // 
             // numericUpDown17
             // 
@@ -1821,7 +1764,6 @@
             0,
             0,
             0});
-            this.numericUpDown17.Visible = false;
             // 
             // numericUpDown18
             // 
@@ -1844,7 +1786,6 @@
             0,
             0,
             0});
-            this.numericUpDown18.Visible = false;
             // 
             // checkBox9
             // 
@@ -1855,7 +1796,7 @@
             this.checkBox9.TabIndex = 8;
             this.checkBox9.Text = "Spiel 2";
             this.checkBox9.UseVisualStyleBackColor = true;
-            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -1868,7 +1809,7 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Spiel 1";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -1879,7 +1820,7 @@
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "Spiel 3";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox10
             // 
@@ -1890,7 +1831,7 @@
             this.checkBox10.TabIndex = 9;
             this.checkBox10.Text = "Spiel 4";
             this.checkBox10.UseVisualStyleBackColor = true;
-            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox11
             // 
@@ -1901,7 +1842,7 @@
             this.checkBox11.TabIndex = 10;
             this.checkBox11.Text = "Spiel 5";
             this.checkBox11.UseVisualStyleBackColor = true;
-            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox12
             // 
@@ -1912,7 +1853,7 @@
             this.checkBox12.TabIndex = 11;
             this.checkBox12.Text = "Spiel 6";
             this.checkBox12.UseVisualStyleBackColor = true;
-            this.checkBox12.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox12.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox13
             // 
@@ -1923,7 +1864,7 @@
             this.checkBox13.TabIndex = 12;
             this.checkBox13.Text = "Spiel 7";
             this.checkBox13.UseVisualStyleBackColor = true;
-            this.checkBox13.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox13.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox14
             // 
@@ -1934,7 +1875,7 @@
             this.checkBox14.TabIndex = 13;
             this.checkBox14.Text = "Spiel 8";
             this.checkBox14.UseVisualStyleBackColor = true;
-            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox15
             // 
@@ -1945,7 +1886,7 @@
             this.checkBox15.TabIndex = 14;
             this.checkBox15.Text = "Spiel 9";
             this.checkBox15.UseVisualStyleBackColor = true;
-            this.checkBox15.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox15.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox16
             // 
@@ -1956,7 +1897,7 @@
             this.checkBox16.TabIndex = 15;
             this.checkBox16.Text = "Spiel 10";
             this.checkBox16.UseVisualStyleBackColor = true;
-            this.checkBox16.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox16.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -1967,7 +1908,7 @@
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "Spiel 11";
             this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -1978,7 +1919,7 @@
             this.checkBox4.TabIndex = 3;
             this.checkBox4.Text = "Spiel 12";
             this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // numericUpDown7
             // 
@@ -2122,6 +2063,32 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 389);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 15);
+            this.label1.TabIndex = 97;
+            this.label1.Text = "Losnummer: ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(86, 389);
+            this.textBox1.MaxLength = 10;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 98;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(318, 384);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 23);
+            this.button1.TabIndex = 99;
+            this.button1.Text = "Abschicken";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2133,8 +2100,9 @@
             this.Text = "Lotto 6 aus 49";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tabPage1.PerformLayout();
+            this.tippsPanel.ResumeLayout(false);
+            this.tippsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown73)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown74)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown75)).EndInit();
@@ -2216,7 +2184,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tippsPanel;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -2301,6 +2269,9 @@
         private System.Windows.Forms.NumericUpDown numericUpDown16;
         private System.Windows.Forms.NumericUpDown numericUpDown17;
         private System.Windows.Forms.NumericUpDown numericUpDown18;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

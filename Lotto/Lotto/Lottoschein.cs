@@ -36,12 +36,12 @@ namespace Lotto
 
         public void Add(int[] tipp)
         {
-           tipps.Add(tipp); 
+           spiele.Add(tipp); 
         }
 
         public void RemoveTipp(int pos)
         {
-           tipps.RemoveAt(pos);              
+            spiele.RemoveAt(pos);              
         }
 		
         public void UpdateTipp(int tippnummer, int[] tipp)

@@ -17,39 +17,34 @@ namespace Lotto
         public Form1()
         {
             InitializeComponent();
-            // TODO Unsichtbare Controls werden beim programmstart nicht erzeugt, ergo kein zugriff moeglich 
-            //ArrayList hiddenControls = new ArrayList(100);
-            //foreach (object o in tableLayoutPanel1.Controls)
-            //{
-            //    Control c = (Control) o;
-            //    if (c.Visible == false)
-            //    {
-            //        hiddenControls.Add(c);
-            //    }
-            //    c.Visible = true;
-            //}
-            //foreach (Control control in hiddenControls)
-            //{
-            //    control.Visible = false;
-            //}
+            SetControlVisibility();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void SetControlVisibility()
         {
-            int row = tableLayoutPanel1.GetPositionFromControl((Control)sender).Row;
-            bool vis = ((CheckBox) sender).Checked;
-            for (int i = 1; i < tableLayoutPanel1.ColumnCount; i++)
+            for (int i = 0; i < tippsPanel.RowCount; i++)
             {
-                try
+                bool vis = ((CheckBox) tippsPanel.GetControlFromPosition(0, i)).Checked;
+                if (vis == false)
                 {
-                    Control con = tableLayoutPanel1.GetControlFromPosition(i, row);
-                    con.Visible = vis;
-                }
-                catch (NullReferenceException)
-                {
-                    
+                    SetRowVisibility(i, false);
                 }
             }
+        }
+
+        private void SetRowVisibility(int row, bool visible)
+        {
+            for (int i = 1; i < tippsPanel.ColumnCount; i++)
+            {
+                tippsPanel.GetControlFromPosition(i, row).Visible = visible;
+            }
+        }
+
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            int row = tippsPanel.GetPositionFromControl((Control)sender).Row;
+            bool vis = ((CheckBox) sender).Checked;
+            SetRowVisibility(row,vis);
         }
 
 
