@@ -15,6 +15,7 @@ namespace Test001
             lotto1.fuelleSpiel();
             lotto1.ZeigeSpiele(); 
             //lotto1.ZeigeSpiele(); 
+            DummyDatabase unserTest = new DummyDatabase(); 
             
             
         }

@@ -30,12 +30,11 @@ namespace Test001
             this.SuperZahl = Convert.ToString(Losnummer[Losnummer.Length - 1]);  
         }
 
+        // To do: Konsoleneingabe heraustrennen...
         public void fuelleSpiel()
         {
             do
-            {
-                
-            
+            {          
             for (int i = 0; i < spiel.Length; i++)
             {
                 Console.WriteLine("Bitte geben Sie die {0}. Zahl ein: ", i+1);
@@ -115,58 +114,14 @@ namespace Test001
             }
         }
         
-
+        
        
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //public int TippNummer { get; set; }
-
-        //public int Superzahl
-        //{
-        //    get { return superzahl; }
-        //    set { superzahl = value; }
-        //}
 
         public void Add(int[] spiel)
         {
             spiele.Add(spiel);
         }
 
-        //public void RemoveTipp(int pos)
-        //{
-        //    tipps.RemoveAt(pos);              
-        //}
-
-        //public void UpdateTipp(int[] tippNeu)
-        //{
-        //    tipps.RemoveAt(tipps.Count - 1);
-        //    tipps.Add(tippNeu); 
-        //}      
+          
     }
 }

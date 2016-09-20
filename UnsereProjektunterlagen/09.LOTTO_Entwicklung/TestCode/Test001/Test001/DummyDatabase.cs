@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lotto
-{
-    class DBDummy : IDatabaseAdapter
+namespace Test001
+{   
+    class DummyDatabase : IDatabaseAdapter
     {
-        
         public Lottoschein LeseAusDB()
         {
             return lottoDummy;  
@@ -20,7 +19,7 @@ namespace Lotto
         int[] spielDummy = new int[6]; 
         
 
-        public DBDummy()
+        public DummyDatabase()
         {           
             spielDummy[0] = 12; 
             spielDummy[1] = 15;
@@ -31,7 +30,8 @@ namespace Lotto
 
             lottoDummy.Add(spielDummy); 
         }
-
+         
+        
         
     }
 }
