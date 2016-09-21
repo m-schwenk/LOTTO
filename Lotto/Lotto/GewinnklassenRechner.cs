@@ -12,50 +12,71 @@ namespace Lotto
 		public ArrayList ErgebnisArr = new ArrayList();
 		int counter = 0;
 		int spieleNr = 1;
-		StringBuilder myStringBuilder; 
+		bool fuegeKommaEin; 
+		StringBuilder myStringBuilder = new StringBuilder();
 
-		public GewinnklassenRechner(Lottoschein lottoschein, int[] aktuelleZiehung)
+		public ArrayList AktuelleZiehungList = new ArrayList(); 
+		StringBuilder aktuelleZiehungBuilder = new StringBuilder(); 
+		
+
+		public GewinnklassenRechner(Lottoschein lottoschein, int[] aktuelleZiehung, int ziehungSuperzahl)
 		{
+			aktuelleZiehungBuilder.Append("Ziehung: ");
+
+			for (int i = 0; i < aktuelleZiehung.Length; i++)
+			{
+				if (i == 0)
+				{
+					aktuelleZiehungBuilder.Append(aktuelleZiehung[i]);
+				}
+				else
+				{
+					aktuelleZiehungBuilder.Append("," + aktuelleZiehung[i]); 
+				}
+			}
+			aktuelleZiehungBuilder.Append(" - (" + ziehungSuperzahl + ")\n");
+			AktuelleZiehungList.Add(aktuelleZiehungBuilder.ToString());
+
 			foreach (int[] spiel in lottoschein.spiele)
 			{
+				fuegeKommaEin = false;
+			   
 				counter = 0;
-				myStringBuilder = new StringBuilder(spieleNr + "." + "  "); 
+				myStringBuilder.Append(spieleNr + "." + "  "); 
 
 				for (int i = 0; i < spiel.Length; i++)
 				{
+					
 					if (aktuelleZiehung.Contains(spiel[i]))
 					{
-						counter++; 
-						//trefferInSpiel[i] = spiel[i];
-						myStringBuilder.Append("," + spiel[i]);
+						if (fuegeKommaEin)
+						{
+							
+							myStringBuilder.Append(",");
+						}
+						else
+						{
+							fuegeKommaEin = true;                             
+						}
+						myStringBuilder.Append(spiel[i]);
+						counter++;
 					}
-					//ErgebnisArr[spieleNr-1] = Convert.ToString(spieleNr) + "." + "  " + trefferInSpiel[i]; 
+					
 				}
 
 				if (counter > 1)
 				{
-					myStringBuilder.Append("         Getroffen " + counter); 
+					myStringBuilder.Append("         Getroffen " + counter);
+					if (lottoschein.SuperZahl == Convert.ToString(ziehungSuperzahl))
+					{
+						myStringBuilder.Append(" + Superzahl " + ziehungSuperzahl); 
+					}
 				}
 				spieleNr++;
-				ErgebnisArr.Add(myStringBuilder.ToString());
- 
-				
-				
-
-				//for (int k = 0; k < lottoschein.spiele.Count; k++)
-				//{
-				//    if (counter > 1)
-				//    {
-						
-				//    }
-					
-				//}        
-			}
-		   
+				ErgebnisArr.Add(myStringBuilder.ToString());       
+			}		   
 		}
-		// (string[])myarrayList.ToArray(typeof(string));
-		// strArrayList.CopyTo(strArray)
-
+		
 		public string[] GetErgebnisse()
 		{
 			string[] hilfsvariable = new string[ErgebnisArr.Count];
