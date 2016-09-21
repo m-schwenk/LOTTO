@@ -28,7 +28,11 @@ namespace Lotto
 			this.SuperZahl = Convert.ToString(Losnummer[Losnummer.Length -1]);
 		}
 
-		// To do: Konsoleneingabe heraustrennen...
+		// ToDo: Konsoleneingabe heraustrennen...
+		/// <summary>
+		/// Methode um ein Spiel eines Lottoscheins zu spielen durch Benutzereingabe mittels Konsole. 
+		/// Zusätzliche Überprüfung auf valide Benutzereingaben:
+		/// </summary>
 		public void fuelleSpiel()
 		{
 			do
@@ -65,6 +69,9 @@ namespace Lotto
 					}
 				}
 
+				/// <summary>
+				/// Methode um ein evtl. weiteres Spiel auf einem Lottoschein zu spielen oder den Schein abzuschließen:
+				/// </summary>
 				spiele.Add(spiel);
 				Console.WriteLine("Wollen Sie ein weiteres Spiel tippen? (J / N)");
 				spiel = new int[6];
@@ -89,17 +96,30 @@ namespace Lotto
 
 		//}
 
+
+		/// <summary>
+		/// Methode um ein Spiel des Lottscheins zu löschen: 
+		/// </summary>
+		/// <param name="pos"></param>
 		public void RemoveSpiel(int pos)
 		{
 			spiele.RemoveAt(pos);
 		}
 
+
+		/// <summary>
+		/// Methode um ein fehlerhaftes Spiel eines Lottoscheins erneut eingeben zu können:
+		/// </summary>
+		/// <param name="tippNeu"></param>
 		public void UpdateSpiel(int[] tippNeu)
 		{
 			spiele.RemoveAt(spiele.Count - 1);
 			spiele.Add(tippNeu);
 		}
 
+		/// <summary>
+		/// Methode um alle gespielten Zahlen eines Scheins an der Konsole auszugeben: 
+		/// </summary>
 		public void ZeigeSpiele()
 		{
 			foreach (int[] s in spiele)
@@ -112,54 +132,55 @@ namespace Lotto
 			}
 		}
 
-
-
-
+		/// <summary>
+		/// Fügt einem Lottoscheinobjekt ein weiteres Spiel hinzu. 
+		/// </summary>
+		/// <param name="spiel"></param>
 		public void Add(int[] spiel)
 		{
 			spiele.Add(spiel);
 		}
 
-
+		// Auskommentierter dummy Code: 
 		
-		//private int superzahl;
-		//private ArrayList spiele;
-		//private int[] spiel;
+		////private int superzahl;
+		////private ArrayList spiele;
+		////private int[] spiel;
 
-		//public string Losnummer { get; set; }
+		////public string Losnummer { get; set; }
 
-		//private int _superZahl;
+		////private int _superZahl;
 
-		//public int SuperZahl
-		//{
-		//    get { return _superZahl; }
-		//    set
-		//    {
-		//        char last = Losnummer[Losnummer.Length - 1];
-		//        _superZahl = Convert.ToInt32(last);
-		//    }
-		//}
+		////public int SuperZahl
+		////{
+		////    get { return _superZahl; }
+		////    set
+		////    {
+		////        char last = Losnummer[Losnummer.Length - 1];
+		////        _superZahl = Convert.ToInt32(last);
+		////    }
+		////}
 
-		//// Konstruktor: 
+		////// Konstruktor: 
 
-		//public Lottoschein(string losnummer)
-		//{
-		//    this.Losnummer = losnummer;
-		//}
+		////public Lottoschein(string losnummer)
+		////{
+		////    this.Losnummer = losnummer;
+		////}
 
-		//public void Add(int[] tipp)
-		//{
-		//   spiele.Add(tipp); 
-		//}
+		////public void Add(int[] tipp)
+		////{
+		////   spiele.Add(tipp); 
+		////}
 
-		//public void RemoveTipp(int pos)
-		//{
-		//    spiele.RemoveAt(pos);              
-		//}
+		////public void RemoveTipp(int pos)
+		////{
+		////    spiele.RemoveAt(pos);              
+		////}
 		
-		//public void UpdateTipp(int tippnummer, int[] tipp)
-		//{
-		//    throw new System.NotImplementedException();
-		//}
+		////public void UpdateTipp(int tippnummer, int[] tipp)
+		////{
+		////    throw new System.NotImplementedException();
+		////}
 	}
 }

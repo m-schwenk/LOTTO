@@ -9,18 +9,30 @@ namespace Lotto
 {
 	class GewinnklassenRechner
 	{
+		// Zusammengesetzte Strings mittels Stringbuilder werden in ArrayLists gespeichert und 
+		// an der GUI ausgegeben.
 		public ArrayList ErgebnisArr = new ArrayList();
+		public ArrayList AktuelleZiehungList = new ArrayList();
+		StringBuilder aktuelleZiehungBuilder = new StringBuilder();
+		StringBuilder myStringBuilder = new StringBuilder();
+		
+		// Hilfsvariablen
 		int counter = 0;
 		int spieleNr = 1;
 		bool fuegeKommaEin; 
-		StringBuilder myStringBuilder = new StringBuilder();
-
-		public ArrayList AktuelleZiehungList = new ArrayList(); 
-		StringBuilder aktuelleZiehungBuilder = new StringBuilder(); 
 		
-
+		/// <summary>
+		/// Dem Konstruktor der Klasse Gewinnklassenrechner werden 3 Parameter übergeben. Innerhalb des Konstruktors 
+		/// werden die gespeicherten Lottoscheine mit der aktuellen Ziehung verglichen, ausgewertet und die Ergebnisse 
+		/// jeweils als String formatiert einer Arraylist übergeben.
+		/// </summary>
+		/// <param name="lottoschein"></param>
+		/// <param name="aktuelleZiehung"></param>
+		/// <param name="ziehungSuperzahl"></param>
 		public GewinnklassenRechner(Lottoschein lottoschein, int[] aktuelleZiehung, int ziehungSuperzahl)
 		{
+			// Mit StringBuilder Klasse wird ein String für die Ausgabe an der GUI kreiiert, der die aktuelle Ziehung
+			// in einer ArrayList speichert.  
 			aktuelleZiehungBuilder.Append("Ziehung: ");
 
 			for (int i = 0; i < aktuelleZiehung.Length; i++)
@@ -37,6 +49,8 @@ namespace Lotto
 			aktuelleZiehungBuilder.Append(" - (" + ziehungSuperzahl + ")\n");
 			AktuelleZiehungList.Add(aktuelleZiehungBuilder.ToString());
 
+			// Jedes Spiel eines Lottoscheins wird mit den aktuellen Ziehungszahlen verglichen und das Ergebnis
+			// und die Gewinnstufen als Strings formatiert in einer ArrayList gespeichert. 
 			foreach (int[] spiel in lottoschein.spiele)
 			{
 				fuegeKommaEin = false;
@@ -77,6 +91,10 @@ namespace Lotto
 			}		   
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public string[] GetErgebnisse()
 		{
 			string[] hilfsvariable = new string[ErgebnisArr.Count];
@@ -88,6 +106,12 @@ namespace Lotto
 			
 			return hilfsvariable; 
 		}
+
+		/// <summary>
+		/// Methode um aus einer Datenbank Werte auszulesen und gibt 
+		/// zurück einen gespielten Lottoschein vom Datentyp Lottoschein
+		/// </summary>
+		/// <returns>Lottoschein</returns>
 		public Lottoschein LeseAusDB()
 		{
 			throw new NotImplementedException(); 
