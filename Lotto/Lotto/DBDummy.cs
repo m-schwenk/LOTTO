@@ -14,22 +14,11 @@ namespace Lotto
             return lottoDummy;  
         }
 
-        Lottoschein lottoDummy = new Lottoschein("995437");
+        readonly Lottoschein lottoDummy = new Lottoschein("995437");
         
-        // DateTime = new DateTime()
-        int[] spielDummy = new int[6]; 
-        
-
         public DBDummy()
         {           
-            spielDummy[0] = 12; 
-            spielDummy[1] = 15;
-            spielDummy[2] = 39; 
-            spielDummy[3] = 49; 
-            spielDummy[4] = 27; 
-            spielDummy[5] = 12;
-
-            lottoDummy.Add(spielDummy); 
+            lottoDummy.Add(1,new int[]{12,15,39,49,27,35}); 
         }
 
         

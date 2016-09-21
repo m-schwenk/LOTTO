@@ -16,7 +16,7 @@ namespace Lotto
 
 		public GewinnklassenRechner(Lottoschein lottoschein, int[] aktuelleZiehung)
 		{
-			foreach (int[] spiel in lottoschein.spiele)
+			foreach (int[] spiel in lottoschein.Spiele)
 			{
 				counter = 0;
 				myStringBuilder = new StringBuilder(spieleNr + "." + "  "); 

@@ -9,28 +9,49 @@ namespace Lotto
     public class Lottoschein
     {
         // Lottoschein besteht aus: Losnummer, 12 Spiele, superzahl 
-        public string Losnummer { get; set; }
+        private string _losnummer;
+        public string Losnummer
+        {
+            get { return _losnummer; }
+            set
+            {
+                if (value.Length <= 7)
+                    value = value.PadLeft(7, '0');
+                else throw new FormatException("Ungueltige Losnummer");
 
-        public string SuperZahl { get; set; }
+                foreach (char c in value)
+                    if ((c < '0') || (c > '9'))
+                        throw new FormatException("Ungueltige Losnummer");
 
-        public ArrayList spiele = new ArrayList();
+                _losnummer = value;
+            }
+        }
 
-        public int[] spiel = new int[6];
+        public byte SuperZahl
+        {
+            get { return Convert.ToByte(Losnummer.Last().ToString()); } // Superzahl ist untrennbar an die Losnummer gebunden, daher dynamische Berechnung
+        }
 
-        private string ans;
-
+        public ArrayList Spiele = new ArrayList(13); // Index 0 bleibt unbenutzt so das gilt: SpielNr == index
 
         // Konstruktor: 
+
+        public Lottoschein() : this("0") {}
 
         public Lottoschein(string losnummer)
         {
             this.Losnummer = losnummer;
-            this.SuperZahl = Convert.ToString(Losnummer[Losnummer.Length - 1]);
+            for (int i = 0; i < Spiele.Capacity; i++)
+            {
+                Spiele[i] = null;
+            }
         }
 
-        // To do: Konsoleneingabe heraustrennen...
+        // todo: Konsoleneingabe heraustrennen...
         public void fuelleSpiel()
         {
+            int[] spiel = new int[6];
+            string ans;
             do
             {
                 for (int i = 0; i < spiel.Length; i++)
@@ -65,7 +86,7 @@ namespace Lotto
                     }
                 }
 
-                spiele.Add(spiel);
+                Spiele.Add(spiel);
                 Console.WriteLine("Wollen Sie ein weiteres Spiel tippen? (J / N)");
                 spiel = new int[6];
                 ans = Console.ReadLine();
@@ -84,25 +105,54 @@ namespace Lotto
             } while (ans.ToUpper() == "J");
         }
 
-        //public void AddSpiele(int[] spiel)
-        //{
-
-        //}
-
-        public void RemoveSpiel(int pos)
+        /// <summary>
+        /// Nimmt das angegebene Spiel in diesem Lottoschein auf
+        /// </summary>
+        /// <param name="spielNr">Muss im Bereich 1-12 liegen</param>
+        /// <param name="spiel">Muss 6 voneinander verschiedene Zahlen im Bereich 1-49 enthalten</param>
+        /// <returns>true wenn spiel erfolgreich aufgenommen wurde, ansonsten false</returns>
+        public bool Add(int spielNr, int[] spiel)
         {
-            spiele.RemoveAt(pos);
+            HashSet<int> spielSet = new HashSet<int>(spiel);
+            if ((spielNr < 1) || (spielNr > 12) || // spielNr ausserhalb des Bereichs 1-12?
+                (spiel.Length != 6) || // nicht exakt 6 zahlen in spiel?
+                (spielSet.Count < 6) || // sind Zahlen doppelt getippt worden?
+                (spielSet.Min() < 1) || (spielSet.Max() > 49)) // getippte Zahlen asuserhalb des Bereichs 1-49?
+                return false;
+            Spiele.Insert(spielNr, spiel);
+            return true;
         }
 
-        public void UpdateSpiel(int[] tippNeu)
+        /// <summary>
+        /// Entfernt das angegebene Spiel
+        /// </summary>
+        /// <param name="spielNr"></param>
+        /// <returns></returns>
+        public bool Remove(int spielNr)
         {
-            spiele.RemoveAt(spiele.Count - 1);
-            spiele.Add(tippNeu);
+            if ((spielNr >= 1) && (spielNr <= 12))
+            {
+                Spiele.RemoveAt(spielNr);
+                return true;
+            }
+            return false;
+
+        }
+
+        /// <summary>
+        /// Ersetzt ein vorhandenes Spiel.
+        /// </summary>
+        /// <param name="spielNr">Zu ersetzendes Spiel</param>
+        /// <param name="spielNeu">Neu aufzunehmendes Spiel</param>
+        /// <returns>true wenn spiel erfolgreich aufgenommen wurde, ansonsten false</returns>
+        public bool Update(int spielNr, int[] spielNeu)
+        {
+            return Remove(spielNr) && Add(spielNr, spielNeu);
         }
 
         public void ZeigeSpiele()
         {
-            foreach (int[] s in spiele)
+            foreach (int[] s in Spiele)
             {
                 for (int i = 0; i < s.Length; i++)
                 {
@@ -112,54 +162,5 @@ namespace Lotto
             }
         }
 
-
-
-
-        public void Add(int[] spiel)
-        {
-            spiele.Add(spiel);
-        }
-
-
-        
-        //private int superzahl;
-        //private ArrayList spiele;
-        //private int[] spiel;
-
-        //public string Losnummer { get; set; }
-
-        //private int _superZahl;
-
-        //public int SuperZahl
-        //{
-        //    get { return _superZahl; }
-        //    set
-        //    {
-        //        char last = Losnummer[Losnummer.Length - 1];
-        //        _superZahl = Convert.ToInt32(last);
-        //    }
-        //}
-
-        //// Konstruktor: 
-
-        //public Lottoschein(string losnummer)
-        //{
-        //    this.Losnummer = losnummer;
-        //}
-
-        //public void Add(int[] tipp)
-        //{
-        //   spiele.Add(tipp); 
-        //}
-
-        //public void RemoveTipp(int pos)
-        //{
-        //    spiele.RemoveAt(pos);              
-        //}
-		
-        //public void UpdateTipp(int tippnummer, int[] tipp)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
     }
 }
