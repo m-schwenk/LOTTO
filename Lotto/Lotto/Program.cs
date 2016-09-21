@@ -31,14 +31,23 @@ namespace Lotto
             Lottoschein lotto1 = new Lottoschein("308857");
             Console.WriteLine("Zusatzzahl: {0}", lotto1.SuperZahl);
 
-            int[] ziehung = {3, 12, 15, 17, 29, 43}; 
+            int[] ziehung = {25, 12, 15, 17, 29, 43};
+            int superzahlZiehung = 7; 
+
             DBDummy dummyLotto1 = new DBDummy();
-            GewinnklassenRechner gewinn1 = new GewinnklassenRechner(dummyLotto1.LeseAusDB(), ziehung);
+
+            GewinnklassenRechner gewinn1 = new GewinnklassenRechner(dummyLotto1.LeseAusDB(), ziehung, superzahlZiehung);
+            foreach (var s in gewinn1.AktuelleZiehungList)
+            {
+                Console.WriteLine(s);
+            }
+            
             foreach (var s in gewinn1.ErgebnisArr)
             {
                 Console.WriteLine(s);
             }
 
+            
         }
     }
 }

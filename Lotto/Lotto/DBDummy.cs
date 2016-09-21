@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 
 namespace Lotto
 {
+    // Klasse um Testdaten zu kreiieren: 
     class DBDummy : IDatabaseAdapter
     {
         
+        /// <summary>
+        /// Implementierung der bereitgestellten Methode der Schnittstelle IDatabase Adapter.
+        /// Methode um aus einer Datenbank Werte auszulesen und gibt 
+        /// zurück einen gespielten Lottoschein vom Datentyp Lottoschein
+        /// </summary>
+        /// <returns>Lottoschein</returns>
         public Lottoschein LeseAusDB()
         {
-            return lottoDummy;  
+            return _lottoDummy;  
         }
 
-        readonly Lottoschein lottoDummy = new Lottoschein("995437");
+        private readonly Lottoschein _lottoDummy = new Lottoschein("995437");
         
         public DBDummy()
         {           
-            lottoDummy.Add(1,new int[]{12,15,39,49,27,35}); 
+            _lottoDummy.Add(new int[]{12,15,39,49,27,30}); 
         }
 
-        
     }
 }

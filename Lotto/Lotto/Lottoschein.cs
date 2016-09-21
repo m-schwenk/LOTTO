@@ -32,7 +32,23 @@ namespace Lotto
             get { return Convert.ToByte(Losnummer.Last().ToString()); } // Superzahl ist untrennbar an die Losnummer gebunden, daher dynamische Berechnung
         }
 
-        public ArrayList Spiele = new ArrayList(13); // Index 0 bleibt unbenutzt so das gilt: SpielNr == index
+  //      string[] month = { [...] };
+
+  //public IEnumerable GetList() {
+  //  for (int i = 0; i < month.Length; i++)
+  //    yield return month[i];
+  //}
+        public IEnumerable<int[]> Spiele
+        {
+            get
+            {
+                foreach (int[] t in _spiele)
+                    if (t != null)
+                        yield return t;
+            }
+        }
+
+        private int[][] _spiele = new int[12][];
 
         // Konstruktor: 
 
@@ -41,10 +57,6 @@ namespace Lotto
         public Lottoschein(string losnummer)
         {
             this.Losnummer = losnummer;
-            for (int i = 0; i < Spiele.Capacity; i++)
-            {
-                Spiele[i] = null;
-            }
         }
 
         // todo: Konsoleneingabe heraustrennen...
@@ -86,7 +98,7 @@ namespace Lotto
                     }
                 }
 
-                Spiele.Add(spiel);
+                //_spiele.Add(spiel);
                 Console.WriteLine("Wollen Sie ein weiteres Spiel tippen? (J / N)");
                 spiel = new int[6];
                 ans = Console.ReadLine();
@@ -119,9 +131,23 @@ namespace Lotto
                 (spielSet.Count < 6) || // sind Zahlen doppelt getippt worden?
                 (spielSet.Min() < 1) || (spielSet.Max() > 49)) // getippte Zahlen asuserhalb des Bereichs 1-49?
                 return false;
-            Spiele.Insert(spielNr, spiel);
+            _spiele[spielNr-1] = spiel;
             return true;
         }
+
+        public bool Add(int[] spiel)
+        {
+            for (int i = 0; i < _spiele.Length; i++)
+            {
+                if (_spiele[i] == null)
+                {
+                    _spiele[i] = spiel;
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         /// <summary>
         /// Entfernt das angegebene Spiel
@@ -132,7 +158,7 @@ namespace Lotto
         {
             if ((spielNr >= 1) && (spielNr <= 12))
             {
-                Spiele.RemoveAt(spielNr);
+                _spiele[spielNr-1] = null;
                 return true;
             }
             return false;
@@ -152,7 +178,7 @@ namespace Lotto
 
         public void ZeigeSpiele()
         {
-            foreach (int[] s in Spiele)
+            foreach (int[] s in _spiele)
             {
                 for (int i = 0; i < s.Length; i++)
                 {
