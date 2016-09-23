@@ -6,10 +6,13 @@ using System.Collections;
 
 namespace Lotto
 {
+
     public class Lottoschein
     {
         // Lottoschein besteht aus: Losnummer, 12 Spiele, superzahl 
         private string _losnummer;
+        private readonly Dictionary<int, SortedSet<int>> _spiele = new Dictionary<int, SortedSet<int>>(12);
+
         public string Losnummer
         {
             get { return _losnummer; }
@@ -32,89 +35,26 @@ namespace Lotto
             get { return Convert.ToByte(Losnummer.Last().ToString()); } // Superzahl ist untrennbar an die Losnummer gebunden, daher dynamische Berechnung
         }
 
-  //      string[] month = { [...] };
-
-  //public IEnumerable GetList() {
-  //  for (int i = 0; i < month.Length; i++)
-  //    yield return month[i];
-  //}
-        public IEnumerable<int[]> Spiele
+        /// <summary>
+        /// Erlaubt die in diesem Lottoschein vorhandenen Spiele zu enumerieren.
+        /// <returns>Die Spiele 1-12 als Kombination aus SpielNr und den getippten Zahlen als Set</returns>
+        /// </summary>
+        public IEnumerable<KeyValuePair<int, SortedSet<int>>> Spiele
         {
             get
             {
-                foreach (int[] t in _spiele)
-                    if (t != null)
-                        yield return t;
+                foreach (KeyValuePair<int, SortedSet<int>> tipp in _spiele)
+                {
+                    yield return tipp;
+                }
             }
         }
 
-        private int[][] _spiele = new int[12][];
-
         // Konstruktor: 
-
-        public Lottoschein() : this("0") {}
 
         public Lottoschein(string losnummer)
         {
             this.Losnummer = losnummer;
-        }
-
-        // todo: Konsoleneingabe heraustrennen...
-        public void fuelleSpiel()
-        {
-            int[] spiel = new int[6];
-            string ans;
-            do
-            {
-                for (int i = 0; i < spiel.Length; i++)
-                {
-                    Console.WriteLine("Bitte geben Sie die {0}. Zahl ein: ", i + 1);
-                    try
-                    {
-                        spiel[i] = Convert.ToInt32(Console.ReadLine());
-                    }
-                    catch (System.FormatException)
-                    {
-                        Console.WriteLine("Fehlerhafte Eingabe. Bitte erneute Eingabe: ");
-                        i--;
-                        continue;
-                    }
-
-                    if ((spiel[i] < 1) || (spiel[i] > 49))
-                    {
-                        Console.WriteLine("Fehlerhafte Eingabe. Zahl ist nicht im Bereich.");
-                        i--;
-                        continue;
-                    }
-
-                    for (int k = 0; k < i; k++)
-                    {
-                        if (spiel[i] == spiel[k])
-                        {
-                            Console.WriteLine("Fehler: Zahl wurde bereits eingegeben");
-                            i--;
-                        }
-
-                    }
-                }
-
-                //_spiele.Add(spiel);
-                Console.WriteLine("Wollen Sie ein weiteres Spiel tippen? (J / N)");
-                spiel = new int[6];
-                ans = Console.ReadLine();
-                if (ans.ToUpper() == "J")
-                {
-
-                }
-                else if (ans.ToUpper() == "N")
-                {
-
-                }
-                else
-                {
-                    Console.WriteLine("Fehlerhafte Eingabe");
-                }
-            } while (ans.ToUpper() == "J");
         }
 
         /// <summary>
@@ -125,27 +65,14 @@ namespace Lotto
         /// <returns>true wenn spiel erfolgreich aufgenommen wurde, ansonsten false</returns>
         public bool Add(int spielNr, int[] spiel)
         {
-            HashSet<int> spielSet = new HashSet<int>(spiel);
-            if ((spielNr < 1) || (spielNr > 12) || // spielNr ausserhalb des Bereichs 1-12?
-                (spiel.Length != 6) || // nicht exakt 6 zahlen in spiel?
-                (spielSet.Count < 6) || // sind Zahlen doppelt getippt worden?
-                (spielSet.Min() < 1) || (spielSet.Max() > 49)) // getippte Zahlen asuserhalb des Bereichs 1-49?
+            SortedSet<int> spielSet = new SortedSet<int>(spiel);
+            if (_spiele.ContainsKey(spielNr) || // Spiel schon vorhanden?
+                (spielNr < 1) || (spielNr > 12) || // spielNr ausserhalb des Bereichs 1-12?
+                (spielSet.Count != 6) || // nicht exakt 6 voneinander verschiedene Zahlen getippt?
+                (spielSet.Min() < 1) || (spielSet.Max() > 49)) // getippte Zahlen ausserhalb des Bereichs 1-49?
                 return false;
-            _spiele[spielNr-1] = spiel;
+            _spiele[spielNr] = spielSet;
             return true;
-        }
-
-        public bool Add(int[] spiel)
-        {
-            for (int i = 0; i < _spiele.Length; i++)
-            {
-                if (_spiele[i] == null)
-                {
-                    _spiele[i] = spiel;
-                    return true;
-                }
-            }
-            return false;
         }
 
 
@@ -158,7 +85,7 @@ namespace Lotto
         {
             if ((spielNr >= 1) && (spielNr <= 12))
             {
-                _spiele[spielNr-1] = null;
+                _spiele.Remove(spielNr);
                 return true;
             }
             return false;
@@ -171,22 +98,10 @@ namespace Lotto
         /// <param name="spielNr">Zu ersetzendes Spiel</param>
         /// <param name="spielNeu">Neu aufzunehmendes Spiel</param>
         /// <returns>true wenn spiel erfolgreich aufgenommen wurde, ansonsten false</returns>
+        /// <remarks>Beibehalten zur Binaerkompatiblitaet</remarks>
         public bool Update(int spielNr, int[] spielNeu)
         {
             return Remove(spielNr) && Add(spielNr, spielNeu);
         }
-
-        public void ZeigeSpiele()
-        {
-            foreach (int[] s in _spiele)
-            {
-                for (int i = 0; i < s.Length; i++)
-                {
-                    Console.Write(s[i] + ", ");
-                }
-                Console.WriteLine();
-            }
-        }
-
     }
 }

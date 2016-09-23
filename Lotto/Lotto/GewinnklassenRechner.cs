@@ -15,13 +15,8 @@ namespace Lotto
 		public ArrayList AktuelleZiehungList = new ArrayList();
 		StringBuilder aktuelleZiehungBuilder = new StringBuilder();
 		StringBuilder myStringBuilder = new StringBuilder();
-		
-		// Hilfsvariablen
-		int counter = 0;
-		int spieleNr = 1;
-		bool fuegeKommaEin; 
-		
-		/// <summary>
+
+	    /// <summary>
 		/// Dem Konstruktor der Klasse Gewinnklassenrechner werden 3 Parameter übergeben. Innerhalb des Konstruktors 
 		/// werden die gespeicherten Lottoscheine mit der aktuellen Ziehung verglichen, ausgewertet und die Ergebnisse 
 		/// jeweils als String formatiert einer Arraylist übergeben.
@@ -31,9 +26,9 @@ namespace Lotto
 		/// <param name="ziehungSuperzahl"></param>
 		public GewinnklassenRechner(Lottoschein lottoschein, int[] aktuelleZiehung, int ziehungSuperzahl)
 		{
-			// Mit StringBuilder Klasse wird ein String für die Ausgabe an der GUI kreiiert, der die aktuelle Ziehung
+			// Mit StringBuilder Klasse wird ein String für die Ausgabe an der GUI kreiert, der die aktuelle Ziehung
 			// in einer ArrayList speichert.  
-			aktuelleZiehungBuilder.Append("Ziehung: ");
+	        aktuelleZiehungBuilder.Append("Ziehung: ");
 
 			for (int i = 0; i < aktuelleZiehung.Length; i++)
 			{
@@ -51,17 +46,16 @@ namespace Lotto
 
 			// Jedes Spiel eines Lottoscheins wird mit den aktuellen Ziehungszahlen verglichen und das Ergebnis
 			// und die Gewinnstufen als Strings formatiert in einer ArrayList gespeichert. 
-			foreach (int[] spiel in lottoschein.Spiele)
+		    foreach (KeyValuePair<int, SortedSet<int>> spiel in lottoschein.Spiele)
 			{
-				fuegeKommaEin = false;
+				var fuegeKommaEin = false;
 			   
-				counter = 0;
-				myStringBuilder.Append(spieleNr + "." + "  "); 
+				var counter = 0;
+				myStringBuilder.Append(spiel.Key + "." + "  ");
 
-				for (int i = 0; i < spiel.Length; i++)
-				{
-					
-					if (aktuelleZiehung.Contains(spiel[i]))
+			    foreach (int i in spiel.Value)
+			    {
+					if (aktuelleZiehung.Contains(i))
 					{
 						if (fuegeKommaEin)
 						{
@@ -72,7 +66,7 @@ namespace Lotto
 						{
 							fuegeKommaEin = true;                             
 						}
-						myStringBuilder.Append(spiel[i]);
+						myStringBuilder.Append(i);
 						counter++;
 					}
 					
@@ -86,7 +80,6 @@ namespace Lotto
 						myStringBuilder.Append(" + Superzahl " + ziehungSuperzahl); 
 					}
 				}
-				spieleNr++;
 				ErgebnisArr.Add(myStringBuilder.ToString());       
 			}		   
 		}
@@ -107,14 +100,5 @@ namespace Lotto
 			return hilfsvariable; 
 		}
 
-		/// <summary>
-		/// Methode um aus einer Datenbank Werte auszulesen und gibt 
-		/// zurück einen gespielten Lottoschein vom Datentyp Lottoschein
-		/// </summary>
-		/// <returns>Lottoschein</returns>
-		public Lottoschein LeseAusDB()
-		{
-			throw new NotImplementedException(); 
-		}
 	}
 }
