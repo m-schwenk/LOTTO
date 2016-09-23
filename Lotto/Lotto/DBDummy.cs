@@ -25,7 +25,7 @@ namespace Lotto
         
         public DBDummy()
         {           
-            _lottoDummy.Add(new int[]{12,15,39,49,27,30}); 
+            _lottoDummy.Add(1, new int[]{12,15,39,49,27,30}); 
         }
 
     }
