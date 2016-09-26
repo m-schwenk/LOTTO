@@ -69,7 +69,7 @@ namespace Lotto
                        foo[j-1]=Convert.ToInt32(((NumericUpDown)tippsPanel.GetControlFromPosition(j, i)).Value);
                     }
 
-                    lotto.Add(foo);
+                    lotto.Add(i,foo);
                 }
             }
           
@@ -92,6 +92,38 @@ namespace Lotto
         }
 
         private void numericUpDown7_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+            DBDummy dbd = new DBDummy();
+             int [] foo= new int[6];
+             int superzahl = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(0, 1)).Value);
+
+             for (int i = 1; i < tableLayoutPanel1.ColumnCount; i++)
+                    {
+                        foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
+                    }
+
+            GewinnklassenRechner gew_kl = new GewinnklassenRechner(dbd.LeseAusDB(), foo, superzahl);
+            foreach (string s in gew_kl.GetErgebnisse())
+            {
+                textBox2.AppendText(s);
+            }
+
+
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
