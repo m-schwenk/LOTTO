@@ -28,7 +28,7 @@ namespace Lotto
 
             IDatabaseAdapter dummyLotto1 = new DBDummy();
 
-            GewinnklassenRechner gewinn1 = new GewinnklassenRechner(dummyLotto1.LeseAusDB(), ziehung, superzahlZiehung);
+            GewinnklassenRechner gewinn1 = new GewinnklassenRechner(dummyLotto1.LeseLottoscheinAusDb(), ziehung, superzahlZiehung);
             foreach (var s in gewinn1.AktuelleZiehungList)
             {
                 Console.WriteLine(s);
@@ -74,7 +74,7 @@ namespace Lotto
                             break;
                         Console.WriteLine("Ungueltige Spielnummer!");
                     }
-                    catch (FormatException )
+                    catch (FormatException)
                     {
                         Console.WriteLine("Fehlerhafte Eingabe. Bitte erneute Eingabe: ");
                     }

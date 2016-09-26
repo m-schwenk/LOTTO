@@ -16,9 +16,14 @@ namespace Lotto
         /// zurück einen gespielten Lottoschein vom Datentyp Lottoschein
         /// </summary>
         /// <returns>Lottoschein</returns>
-        public Lottoschein LeseAusDB()
+        public Lottoschein LeseLottoscheinAusDb()
         {
             return _lottoDummy;  
+        }
+
+        public void SchreibeLottoscheinInDb(Lottoschein ls)
+        {
+            
         }
 
         private readonly Lottoschein _lottoDummy = new Lottoschein("995437");

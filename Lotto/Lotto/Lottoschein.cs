@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Collections; 
 
 namespace Lotto
 {
 
     public class Lottoschein
     {
-        // Lottoschein besteht aus: Losnummer, 12 Spiele, superzahl 
-        private string _losnummer;
+        public DateTime Abgabedatum { get; set; }
+        public bool Samstag { get; set; }
+        public bool Mittwoch { get; set; }
+        public int Laufzeit { get; set; }
         private readonly Dictionary<int, SortedSet<int>> _spiele = new Dictionary<int, SortedSet<int>>(12);
 
+        private string _losnummer;
         public string Losnummer
         {
             get { return _losnummer; }
-            set
+            private set
             {
                 if (value.Length <= 7)
                     value = value.PadLeft(7, '0');
@@ -50,11 +51,19 @@ namespace Lotto
             }
         }
 
+//        public IEnumerable<ISet<DateTime>> Ziehungstermine
+//        {
+//            get
+//            {
+//                
+//            }
+//        }
+
         // Konstruktor: 
 
         public Lottoschein(string losnummer)
         {
-            this.Losnummer = losnummer;
+            Losnummer = losnummer;
         }
 
         /// <summary>
