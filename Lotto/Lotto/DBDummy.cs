@@ -26,6 +26,11 @@ namespace Lotto
             
         }
 
+        public void SchreibeZiehungInDb(Ziehung ziehung)
+        {
+            
+        }
+
         private readonly Lottoschein _lottoDummy = new Lottoschein("995437");
         
         public DBDummy()
