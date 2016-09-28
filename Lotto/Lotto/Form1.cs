@@ -14,6 +14,8 @@ namespace Lotto
 {
     public partial class Form1 : Form
     {
+        private readonly IDatabaseAdapter dbd = new DBDummy();
+
         public Form1()
         {
             InitializeComponent();
@@ -52,9 +54,9 @@ namespace Lotto
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void abschickenbutton_Click(object sender, EventArgs e)
         {
-            Lottoschein lotto = new Lottoschein(textBox1.Text);
+            Lottoschein lotto = new Lottoschein(losnummer.Text);
       
             for (int i=0; i < tippsPanel.RowCount; i++)
             {
@@ -103,8 +105,7 @@ namespace Lotto
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox2.Text = "";
-            DBDummy dbd = new DBDummy();
+            ergebnisse.Text = "";
              int [] foo= new int[6];
              int superzahl = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(0, 1)).Value);
 
@@ -113,10 +114,10 @@ namespace Lotto
                         foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
                     }
 
-            GewinnklassenRechner gew_kl = new GewinnklassenRechner(dbd.LeseAusDB(), foo, superzahl);
+            GewinnklassenRechner gew_kl = new GewinnklassenRechner(dbd.LeseLottoscheinAusDb(), foo, superzahl);
             foreach (string s in gew_kl.GetErgebnisse())
             {
-                textBox2.AppendText(s);
+                ergebnisse.AppendText(s);
             }
 
 

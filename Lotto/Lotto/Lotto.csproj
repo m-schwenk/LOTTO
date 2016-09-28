@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{94CB1C52-047A-406D-9A36-F87110455621}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Lotto</RootNamespace>
     <AssemblyName>Lotto</AssemblyName>
@@ -56,7 +56,6 @@
     </Compile>
     <Compile Include="GewinnklassenRechner.cs" />
     <Compile Include="IDatabaseAdapter.cs" />
-    <Compile Include="Lotto.cs" />
     <Compile Include="Lottoschein.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

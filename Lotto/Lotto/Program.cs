@@ -20,24 +20,24 @@ namespace Lotto
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            Lottoschein lotto1 = new Lottoschein("308857");
-            Console.WriteLine("Zusatzzahl: {0}", lotto1.SuperZahl);
-
-            int[] ziehung = {25, 12, 15, 17, 29, 43};
-            int superzahlZiehung = 7; 
-
-            IDatabaseAdapter dummyLotto1 = new DBDummy();
-
-            GewinnklassenRechner gewinn1 = new GewinnklassenRechner(dummyLotto1.LeseLottoscheinAusDb(), ziehung, superzahlZiehung);
-            foreach (var s in gewinn1.AktuelleZiehungList)
-            {
-                Console.WriteLine(s);
-            }
-            
-            foreach (var s in gewinn1.ErgebnisArr)
-            {
-                Console.WriteLine(s);
-            }
+//            Lottoschein lotto1 = new Lottoschein("308857");
+//            Console.WriteLine("Zusatzzahl: {0}", lotto1.SuperZahl);
+//
+//            int[] ziehung = {25, 12, 15, 17, 29, 43};
+//            int superzahlZiehung = 7; 
+//
+//            IDatabaseAdapter dummyLotto1 = new DBDummy();
+//
+//            GewinnklassenRechner gewinn1 = new GewinnklassenRechner(dummyLotto1.LeseLottoscheinAusDb(), ziehung, superzahlZiehung);
+//            foreach (var s in gewinn1.AktuelleZiehungList)
+//            {
+//                Console.WriteLine(s);
+//            }
+//            
+//            foreach (var s in gewinn1.ErgebnisArr)
+//            {
+//                Console.WriteLine(s);
+//            }
 
         }
 
