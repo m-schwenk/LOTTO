@@ -23,7 +23,7 @@ namespace Test001
 
         public Lottoschein LeseAusDB()
         {
-            return 
+            throw new NotImplementedException(); 
         }
     }
 }
