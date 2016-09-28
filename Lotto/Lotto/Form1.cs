@@ -14,7 +14,7 @@ namespace Lotto
 {
     public partial class Form1 : Form
     {
-        private readonly IDatabaseAdapter dbd = new DBDummy();
+        private readonly IDatabaseAdapter _database = new DBDummy();
 
         public Form1()
         {
@@ -49,11 +49,6 @@ namespace Lotto
             SetRowVisibility(row,vis);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void abschickenbutton_Click(object sender, EventArgs e)
         {
             Lottoschein lotto = new Lottoschein(losnummer.Text);
@@ -78,31 +73,6 @@ namespace Lotto
           
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void numericUpDown7_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ergebnisse.Text = "";
@@ -110,11 +80,11 @@ namespace Lotto
              int superzahl = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(0, 1)).Value);
 
              for (int i = 1; i < tableLayoutPanel1.ColumnCount; i++)
-                    {
-                        foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
-                    }
+            {
+                foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
+            }
 
-            GewinnklassenRechner gew_kl = new GewinnklassenRechner(dbd.LeseLottoscheinAusDb(), foo, superzahl);
+            GewinnklassenRechner gew_kl = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), foo, superzahl);
             foreach (string s in gew_kl.GetErgebnisse())
             {
                 ergebnisse.AppendText(s);
@@ -124,9 +94,9 @@ namespace Lotto
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void numericUpDown_ValueChanged(object sender, EventArgs e)
         {
-
+            //todo pruefen ob neuer wert schon in zeile vorhanden, wenn ja wert in-/dekrementieren bis passender wert gefunden
         }
 
 

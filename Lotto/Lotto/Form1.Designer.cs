@@ -278,7 +278,6 @@
             this.Abgabedatum.Size = new System.Drawing.Size(196, 20);
             this.Abgabedatum.TabIndex = 100;
             this.Abgabedatum.Value = new System.DateTime(2016, 9, 28, 0, 0, 0, 0);
-            this.Abgabedatum.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // abschickenButton
             // 
@@ -297,7 +296,6 @@
             this.losnummer.Name = "losnummer";
             this.losnummer.Size = new System.Drawing.Size(100, 20);
             this.losnummer.TabIndex = 98;
-            this.losnummer.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -2027,7 +2025,7 @@
             0,
             0,
             0});
-            this.numericUpDown7.ValueChanged += new System.EventHandler(this.numericUpDown7_ValueChanged);
+            this.numericUpDown7.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // numericUpDown8
             // 
@@ -2176,7 +2174,6 @@
             this.ergebnisse.Size = new System.Drawing.Size(314, 229);
             this.ergebnisse.TabIndex = 4;
             this.ergebnisse.WordWrap = false;
-            this.ergebnisse.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label10
             // 
@@ -2202,7 +2199,6 @@
             this.auswertungsButton.TabIndex = 1;
             this.auswertungsButton.Text = "Auswertung\r\n";
             this.auswertungsButton.UseVisualStyleBackColor = true;
-            this.auswertungsButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -2238,7 +2234,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(314, 52);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint_1);
             // 
             // label5
             // 
@@ -2374,7 +2369,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Superzahl";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -2458,7 +2452,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(406, 413);
+            this.tabPage3.Size = new System.Drawing.Size(326, 413);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Statistik";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -2467,7 +2461,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(406, 413);
+            this.tabPage4.Size = new System.Drawing.Size(326, 413);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Optionen";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -2476,7 +2470,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(406, 413);
+            this.tabPage5.Size = new System.Drawing.Size(326, 413);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "About";
             this.tabPage5.UseVisualStyleBackColor = true;
