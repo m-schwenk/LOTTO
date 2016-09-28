@@ -8,7 +8,8 @@ namespace Lotto
     public interface IDatabaseAdapter
     {
         Lottoschein LeseLottoscheinAusDb();
-        void SchreibeLottoscheinInDb(Lottoschein ls);
+        void SchreibeLottoscheinInDb(Lottoschein lottoschein);
+        void SchreibeZiehungInDb(Ziehung ziehung);
 
     }
 }

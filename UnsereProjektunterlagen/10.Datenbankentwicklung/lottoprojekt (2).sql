@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 23. Sep 2016 um 14:51
--- Server Version: 5.6.11
--- PHP-Version: 5.5.1
+-- Generation Time: Sep 28, 2016 at 12:17 PM
+-- Server version: 5.6.11
+-- PHP Version: 5.5.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,15 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `lottoprojekt35`
+-- Database: `lottoprojekt`
 --
-CREATE DATABASE IF NOT EXISTS `lottoprojekt35` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `lottoprojekt35`;
+CREATE DATABASE IF NOT EXISTS `lottoprojekt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `lottoprojekt`;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `gehoertzu`
+-- Table structure for table `gehoertzu`
 --
 
 CREATE TABLE IF NOT EXISTS `gehoertzu` (
@@ -38,37 +38,37 @@ CREATE TABLE IF NOT EXISTS `gehoertzu` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `lottoschein`
+-- Table structure for table `lottoschein`
 --
 
 CREATE TABLE IF NOT EXISTS `lottoschein` (
   `id_lottoschein` int(11) NOT NULL,
-  `losNummer` int(11) NOT NULL,
-  `laufZeit` int(11) NOT NULL,
-  `samstagZiehung` tinyint(4) DEFAULT NULL,
-  `mittwochZiehung` tinyint(4) DEFAULT NULL,
-  `spiel77` tinyint(4) DEFAULT NULL,
-  `super6` tinyint(4) DEFAULT NULL,
+  `losNummer` mediumint(7) unsigned zerofill NOT NULL,
+  `laufZeit` tinyint(1) unsigned NOT NULL,
+  `samstagZiehung` tinyint(1) DEFAULT NULL,
+  `mittwochZiehung` tinyint(1) DEFAULT NULL,
+  `spiel77` tinyint(1) DEFAULT NULL,
+  `super6` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id_lottoschein`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `spiel`
+-- Table structure for table `spiel`
 --
 
 CREATE TABLE IF NOT EXISTS `spiel` (
   `id_spiel` int(11) NOT NULL,
   `id_lottoschein` int(11) NOT NULL,
-  `spielNummer` int(11) NOT NULL,
-  `zahl1` int(11) NOT NULL,
-  `zahl2` int(11) NOT NULL,
-  `zahl3` int(11) NOT NULL,
-  `zahl4` int(11) NOT NULL,
-  `zahl5` int(11) NOT NULL,
-  `zahl6` int(11) NOT NULL,
-  `superZahl` int(11) NOT NULL,
+  `spielNummer` tinyint(2) unsigned NOT NULL,
+  `zahl1` tinyint(1) unsigned NOT NULL,
+  `zahl2` tinyint(1) unsigned NOT NULL,
+  `zahl3` tinyint(1) unsigned NOT NULL,
+  `zahl4` tinyint(1) unsigned NOT NULL,
+  `zahl5` tinyint(1) unsigned NOT NULL,
+  `zahl6` tinyint(1) unsigned NOT NULL,
+  `superZahl` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY (`id_spiel`),
   KEY `id_lottoschein` (`id_lottoschein`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -76,60 +76,60 @@ CREATE TABLE IF NOT EXISTS `spiel` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `ziehung`
+-- Table structure for table `ziehung`
 --
 
 CREATE TABLE IF NOT EXISTS `ziehung` (
   `id_ziehung` int(11) NOT NULL,
   `datum` date NOT NULL,
-  `istSamstag` tinyint(4) NOT NULL,
-  `spiel77` int(11) NOT NULL,
-  `super6` int(11) NOT NULL,
+  `istSamstag` tinyint(1) NOT NULL COMMENT '0 fuer Mi, 1 fuer Sa',
+  `spiel77` mediumint(7) unsigned zerofill NOT NULL,
+  `super6` mediumint(6) unsigned zerofill NOT NULL,
   PRIMARY KEY (`id_ziehung`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `ziehungszahl`
+-- Table structure for table `ziehungszahlen`
 --
 
-CREATE TABLE IF NOT EXISTS `ziehungszahl` (
+CREATE TABLE IF NOT EXISTS `ziehungszahlen` (
   `id_ziehungsZahl` int(11) NOT NULL,
   `id_ziehung` int(11) NOT NULL,
-  `zahl1` int(11) NOT NULL,
-  `zahl2` int(11) NOT NULL,
-  `zahl3` int(11) NOT NULL,
-  `zahl4` int(11) NOT NULL,
-  `zahl5` int(11) NOT NULL,
-  `zahl6` int(11) NOT NULL,
-  `superZahl` int(11) NOT NULL,
+  `zahl1` tinyint(2) unsigned NOT NULL,
+  `zahl2` tinyint(2) unsigned NOT NULL,
+  `zahl3` tinyint(2) unsigned NOT NULL,
+  `zahl4` tinyint(2) unsigned NOT NULL,
+  `zahl5` tinyint(2) unsigned NOT NULL,
+  `zahl6` tinyint(2) unsigned NOT NULL,
+  `superZahl` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY (`id_ziehungsZahl`),
   KEY `id_ziehung` (`id_ziehung`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Constraints der exportierten Tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Constraints der Tabelle `gehoertzu`
+-- Constraints for table `gehoertzu`
 --
 ALTER TABLE `gehoertzu`
   ADD CONSTRAINT `gehoertzu_ibfk_1` FOREIGN KEY (`id_ziehung`) REFERENCES `ziehung` (`id_ziehung`),
   ADD CONSTRAINT `gehoertzu_ibfk_2` FOREIGN KEY (`id_lottoschein`) REFERENCES `lottoschein` (`id_lottoschein`);
 
 --
--- Constraints der Tabelle `spiel`
+-- Constraints for table `spiel`
 --
 ALTER TABLE `spiel`
   ADD CONSTRAINT `spiel_ibfk_1` FOREIGN KEY (`id_lottoschein`) REFERENCES `lottoschein` (`id_lottoschein`);
 
 --
--- Constraints der Tabelle `ziehungszahl`
+-- Constraints for table `ziehungszahlen`
 --
-ALTER TABLE `ziehungszahl`
-  ADD CONSTRAINT `ziehungszahl_ibfk_1` FOREIGN KEY (`id_ziehung`) REFERENCES `ziehung` (`id_ziehung`);
+ALTER TABLE `ziehungszahlen`
+  ADD CONSTRAINT `ziehungszahlen_ibfk_1` FOREIGN KEY (`id_ziehung`) REFERENCES `ziehung` (`id_ziehung`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
