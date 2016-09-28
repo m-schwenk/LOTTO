@@ -2199,6 +2199,7 @@
             this.auswertungsButton.TabIndex = 1;
             this.auswertungsButton.Text = "Auswertung\r\n";
             this.auswertungsButton.UseVisualStyleBackColor = true;
+            this.auswertungsButton.Click += new System.EventHandler(this.auswertungsButton_Click);
             // 
             // tableLayoutPanel1
             // 

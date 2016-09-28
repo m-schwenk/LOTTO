@@ -73,7 +73,12 @@ namespace Lotto
           
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            //todo pruefen ob neuer wert schon in zeile vorhanden, wenn ja wert in-/dekrementieren bis passender wert gefunden
+        }
+
+        private void auswertungsButton_Click(object sender, EventArgs e)
         {
             ergebnisse.Text = "";
              int [] foo= new int[6];
@@ -84,6 +89,8 @@ namespace Lotto
                 foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
             }
 
+            Ziehung z = new Ziehung(foo, superzahl, aktuelleZiehung.Value);
+
             GewinnklassenRechner gew_kl = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), foo, superzahl);
             foreach (string s in gew_kl.GetErgebnisse())
             {
@@ -92,11 +99,6 @@ namespace Lotto
 
 
 
-        }
-
-        private void numericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            //todo pruefen ob neuer wert schon in zeile vorhanden, wenn ja wert in-/dekrementieren bis passender wert gefunden
         }
 
 
