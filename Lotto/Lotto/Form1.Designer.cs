@@ -31,9 +31,15 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.Abgabedatum = new System.Windows.Forms.DateTimePicker();
             this.abschickenButton = new System.Windows.Forms.Button();
             this.losnummer = new System.Windows.Forms.TextBox();
+=======
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+>>>>>>> 52a0b4b1ae29d884d389afda53d64d19d84aa2df
             this.label1 = new System.Windows.Forms.Label();
             this.tippsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.numericUpDown73 = new System.Windows.Forms.NumericUpDown();
@@ -122,10 +128,17 @@
             this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.ergebnisse = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.aktuelleZiehung = new System.Windows.Forms.DateTimePicker();
             this.auswertungsButton = new System.Windows.Forms.Button();
+=======
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+>>>>>>> 52a0b4b1ae29d884d389afda53d64d19d84aa2df
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -141,9 +154,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown79 = new System.Windows.Forms.NumericUpDown();
+<<<<<<< HEAD
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+=======
+>>>>>>> 52a0b4b1ae29d884d389afda53d64d19d84aa2df
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tippsPanel.SuspendLayout();
@@ -267,6 +283,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 327);
             this.label9.Name = "label9";
+<<<<<<< HEAD
             this.label9.Size = new System.Drawing.Size(87, 15);
             this.label9.TabIndex = 101;
             this.label9.Text = "Abgabedatum:";
@@ -278,6 +295,22 @@
             this.Abgabedatum.Size = new System.Drawing.Size(196, 20);
             this.Abgabedatum.TabIndex = 100;
             this.Abgabedatum.Value = new System.DateTime(2016, 9, 28, 0, 0, 0, 0);
+=======
+            this.label9.Size = new System.Drawing.Size(88, 15);
+            this.label9.TabIndex = 101;
+            this.label9.Text = "Abgabedarum:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(6, 345);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(196, 20);
+            this.dateTimePicker1.TabIndex = 100;
+            this.dateTimePicker1.Value = new System.DateTime(2016, 9, 26, 13, 37, 37, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // button1
+>>>>>>> 52a0b4b1ae29d884d389afda53d64d19d84aa2df
             // 
             // abschickenButton
             // 
@@ -2158,11 +2191,44 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 160);
             this.label11.Name = "label11";
+<<<<<<< HEAD
             this.label11.Size = new System.Drawing.Size(72, 15);
             this.label11.TabIndex = 5;
             this.label11.Text = "Ergebnisse:";
             // 
             // ergebnisse
+=======
+            this.label11.Size = new System.Drawing.Size(69, 15);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Ergebnisse\r\n";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 178);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(394, 99);
+            this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 103);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(166, 15);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Datum der aktuelen Ziehung:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(6, 120);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 2;
+            // 
+            // button2
+>>>>>>> 52a0b4b1ae29d884d389afda53d64d19d84aa2df
             // 
             this.ergebnisse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -2448,6 +2514,7 @@
             0,
             0});
             // 
+<<<<<<< HEAD
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -2475,6 +2542,8 @@
             this.tabPage5.Text = "About";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+=======
+>>>>>>> 52a0b4b1ae29d884d389afda53d64d19d84aa2df
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
