@@ -55,8 +55,77 @@ namespace Lotto
         private void button1_Click(object sender, EventArgs e)
         {
             Lottoschein lotto = new Lottoschein(textBox1.Text);
+      
+            for (int i=0; i < tippsPanel.RowCount; i++)
+            {
+                if (((CheckBox) tippsPanel.GetControlFromPosition(0, i)).Checked==true)
+                {
+                    int [] foo= new int[6];
 
-           //to do
+                    for  (int j=1; j < tippsPanel.ColumnCount; j++)
+
+                    {
+
+                       foo[j-1]=Convert.ToInt32(((NumericUpDown)tippsPanel.GetControlFromPosition(j, i)).Value);
+                    }
+
+                    lotto.Add(i,foo);
+                }
+            }
+          
+          
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void numericUpDown7_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+            DBDummy dbd = new DBDummy();
+             int [] foo= new int[6];
+             int superzahl = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(0, 1)).Value);
+
+             for (int i = 1; i < tableLayoutPanel1.ColumnCount; i++)
+                    {
+                        foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
+                    }
+
+            GewinnklassenRechner gew_kl = new GewinnklassenRechner(dbd.LeseAusDB(), foo, superzahl);
+            foreach (string s in gew_kl.GetErgebnisse())
+            {
+                textBox2.AppendText(s);
+            }
+
+
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -1,0 +1,17 @@
+
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/978-3-8362-1773-6_Muster \(1\).zip' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/Agile+Software+Architecture+\(2014\).pdf' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/AgileSoft-Scrum.zip' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/C#_WPF_CS_2015_Downloadkapitel.pdf' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/Pflichtenhefte.rar' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/Scrum.docx' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/Teil+4+-+WPF.zip' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/Teil+5+-+Windows+Forms.zip' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_RessourcenVonAdam/Vertrag.zip' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/Agile+Software+Architecture+\(2014\).pdf' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/ProjektmanBuch_PMFITP_v2.pdf' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/Scrum.docx' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/PM_Verträge/anlagen_endfassung.pdf' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/Pflichtenheft_Templates/Diplomarbeit_Martin_Knueppel.pdf' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/Pflichtenheft_Templates/PflichtenheftCE_Routenplaner_Leseprobe.pdf' HEAD
+git filter-branch --force --tree-filter 'rm -f UnsereProjektunterlagen/20.Ressourcen_Vorlagen_etc/Pflichtenheft_Templates/pflichtenheft11.pdf' HEAD

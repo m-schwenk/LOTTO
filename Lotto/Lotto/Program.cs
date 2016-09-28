@@ -16,9 +16,9 @@ namespace Lotto
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
 
             Lottoschein lotto1 = new Lottoschein("308857");
             Console.WriteLine("Zusatzzahl: {0}", lotto1.SuperZahl);
