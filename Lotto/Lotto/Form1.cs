@@ -81,18 +81,18 @@ namespace Lotto
         private void auswertungsButton_Click(object sender, EventArgs e)
         {
             ergebnisse.Text = "";
-             int [] foo= new int[6];
-             int superzahl = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(0, 1)).Value);
+            int [] ziehungZahlen = new int[6];
+            int ziehungSuperzahl = (int) this.superzahl.Value;
 
-             for (int i = 1; i < tableLayoutPanel1.ColumnCount; i++)
+             for (int i = 0; i < tableLayoutPanel1.ColumnCount; i++)
             {
-                foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
+                ziehungZahlen[i] = (int)((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 0)).Value;
             }
 
-            Ziehung z = new Ziehung(foo, superzahl, aktuelleZiehung.Value);
+            Ziehung z = new Ziehung(ziehungZahlen, ziehungSuperzahl, aktuelleZiehung.Value);
 
-            GewinnklassenRechner gew_kl = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), foo, superzahl);
-            foreach (string s in gew_kl.GetErgebnisse())
+            GewinnklassenRechner ziehungsAuswertung = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), ziehungZahlen, ziehungSuperzahl);
+            foreach (string s in ziehungsAuswertung.GetErgebnisse())
             {
                 ergebnisse.AppendText(s);
             }
