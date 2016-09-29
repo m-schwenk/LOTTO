@@ -14,7 +14,7 @@ namespace Lotto
 {
     public partial class Form1 : Form
     {
-        private readonly IDatabaseAdapter _database = new DBDummy();
+        private readonly IDatabaseAdapter _database = new MySQL_Adapter();
 
         public Form1()
         {
@@ -91,13 +91,13 @@ namespace Lotto
 
             Ziehung z = new Ziehung(ziehungZahlen, ziehungSuperzahl, aktuelleZiehung.Value);
 
-            GewinnklassenRechner ziehungsAuswertung = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), ziehungZahlen, ziehungSuperzahl);
-            foreach (string s in ziehungsAuswertung.GetErgebnisse())
-            {
-                ergebnisse.AppendText(s);
-            }
+//            GewinnklassenRechner ziehungsAuswertung = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), ziehungZahlen, ziehungSuperzahl);
+//            foreach (string s in ziehungsAuswertung.GetErgebnisse())
+//            {
+//                ergebnisse.AppendText(s);
+//            }
 
-
+            _database.SchreibeZiehungInDb(z);
 
         }
 

@@ -11,7 +11,7 @@ namespace Lotto
         public string Spiel77 { get; set; }
         public string Super6 { get; set; }
 
-        public Ziehung(int[] ziehungsZahlen, int superZahl, DateTime ziehungsTag, string spiel77 = "", string super6 = "") : this()
+        public Ziehung(int[] ziehungsZahlen, int superZahl, DateTime ziehungsTag, string spiel77 = "-1", string super6 = "-1") : this()
         {
             ZiehungsZahlen = new SortedSet<int>(ziehungsZahlen);
             if (ZiehungsZahlen.Count != 6)
