@@ -16,8 +16,8 @@ namespace Lotto
             ZiehungsZahlen = null;
             Superzahl = -1;
             ZiehungsTag = ziehungsTag;
-            Spiel77 = null;
-            Super6 = null;
+            Spiel77 = "";
+            Super6 = "";
         }
 
         public Ziehung(int[] ziehungsZahlen, int superZahl, DateTime ziehungsTag, string spiel77 = "", string super6 = "") : this()
@@ -33,7 +33,7 @@ namespace Lotto
             Super6 = super6;
         }
 
-        public Ziehung(int[] ziehungsZahlen, int superZahl) : this(ziehungsZahlen, superZahl, DateTime.Today) {}
+//        public Ziehung(int[] ziehungsZahlen, int superZahl) : this(ziehungsZahlen, superZahl, DateTime.Today) {}
 
     }
 }

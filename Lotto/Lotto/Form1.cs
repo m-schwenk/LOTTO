@@ -69,7 +69,7 @@ namespace Lotto
                     lotto.Add(i,foo);
                 }
             }
-          _database.SchreibeLottoscheinInDb(lotto);
+//          _database.SchreibeLottoscheinInDb(lotto);
           
         }
 
@@ -89,15 +89,34 @@ namespace Lotto
                 ziehungZahlen[i] = (int)((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 0)).Value;
             }
 
+             Lottoschein lotto = new Lottoschein(losnummer.Text);
+
+             for (int i = 0; i < tippsPanel.RowCount; i++)
+             {
+                 if (((CheckBox)tippsPanel.GetControlFromPosition(0, i)).Checked == true)
+                 {
+                     int[] foo = new int[6];
+
+                     for (int j = 1; j < tippsPanel.ColumnCount; j++)
+                     {
+
+                         foo[j - 1] = Convert.ToInt32(((NumericUpDown)tippsPanel.GetControlFromPosition(j, i)).Value);
+                     }
+
+                     lotto.Add(i+1, foo);
+                 }
+             }
+
             Ziehung z = new Ziehung(ziehungZahlen, ziehungSuperzahl, aktuelleZiehung.Value);
 
+            GewinnklassenRechner ziehungsAuswertung = new GewinnklassenRechner(lotto, ziehungZahlen, ziehungSuperzahl);
 //            GewinnklassenRechner ziehungsAuswertung = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), ziehungZahlen, ziehungSuperzahl);
-//            foreach (string s in ziehungsAuswertung.GetErgebnisse())
-//            {
-//                ergebnisse.AppendText(s);
-//            }
+            foreach (string s in ziehungsAuswertung.GetErgebnisse())
+            {
+                ergebnisse.AppendText(s + "\n");
+            }
 
-            _database.SchreibeZiehungInDb(z);
+//            _database.SchreibeZiehungInDb(z);
 
         }
 

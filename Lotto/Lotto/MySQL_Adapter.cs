@@ -135,6 +135,19 @@ namespace Lotto
                 {
                     SqlInsert(prefix + autoIDZiehung + ");");
                 }
+                prefix =
+                    "INSERT INTO `spiel`(`id_lottoschein`, `spielNummer`, `zahl1`, `zahl2`, `zahl3`, `zahl4`, `zahl5`, `zahl6`, `superZahl`) VALUES (" +
+                    autoIDLottoschein + ',';
+                foreach (KeyValuePair<int, SortedSet<int>> spiel in lottoschein.Spiele)
+                {
+                    string spielValues = spiel.Key.ToString() + ',';
+                    foreach (int zahl in spiel.Value)
+                    {
+                        spielValues += zahl + ',';
+                    }
+                    spielValues += lottoschein.SuperZahl + ");";
+                    SqlInsert(prefix + spielValues);
+                }
             }
         }
 
@@ -158,15 +171,49 @@ namespace Lotto
             return autoID;
         }
 
+        private void SqlUpdate(string cmdStr)
+        {
+            _mySqlCommand.CommandText = cmdStr;
+
+            try
+            {
+                _mySqlCommand.ExecuteScalar();
+            }
+            catch (NullReferenceException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         public void SchreibeZiehungInDb(Ziehung ziehung)
         {
-            string cmdStr = "INSERT INTO `ziehung`(`datum`, `istSamstag`, `spiel77`, `super6`) VALUES (";
-            // 2016-09-28,true,1234567,123456)"
-            cmdStr += "'" + ziehung.ZiehungsTag.ToString("yyyy-MM-dd") + "',";
-            cmdStr += (ziehung.ZiehungsTag.DayOfWeek == DayOfWeek.Saturday).ToString().ToLower() +',';
-            cmdStr += ziehung.Spiel77 +',';
-            cmdStr += ziehung.Super6 + ");";
-            // 		CommandText	"INSERT INTO `ziehung`(`datum`, `istSamstag`, `spiel77`, `super6`) VALUES (2016-09-29,false,,"	string
+            //UPDATE `ziehung` SET 
+            //`Zahl1`=[value-4],
+            //`Zahl2`=[value-5],
+            //`Zahl3`=[value-6],
+            //`Zahl4`=[value-7],
+            //`Zahl5`=[value-8],
+            //`Zahl6`=[value-9],
+            //`superZahl`=[value-10],
+            //`spiel77`=[value-11],
+            //`super6`=[value-12] 
+            //WHERE ziehung.datum= ;
+
+            // UPDATE ziehung SET `zahl1`=1,`zahl2`=2,`zahl3`=3,`zahl4`=4,`zahl5`=5,`zahl6`=6,`superZahl`=3 WHERE ziehung.datum='2016-10-01';
+            // UPDATE ziehung SET `Zahl1`=1,`Zahl2`=2,`Zahl3`=3,`Zahl4`=4,`Zahl5`=5,`Zahl6`=6,`superZahl`=0 WHERE ziehung.datum='2016-09-30';
+
+            string cmdStr = "UPDATE ziehung SET ";
+            int i = 1;
+            foreach (int zahl in ziehung.ZiehungsZahlen)
+            {
+                cmdStr += "`zahl" + i++ + "`=" + zahl + ',';
+            }
+            cmdStr += "`superZahl`=" + ziehung.Superzahl;// + ',';
+//            cmdStr += "`spiel77`=" + ziehung.Spiel77 + ',';
+//            cmdStr += "`super6`=" + ziehung.Super6;
+            cmdStr += " WHERE ziehung.datum=" + sqlDate(ziehung.ZiehungsTag) + ';';
+            SqlUpdate(cmdStr);
+            return;
             _mySqlCommand.CommandText = cmdStr;
             if (_mySqlCommand.ExecuteNonQuery() > 0)
             {
@@ -177,10 +224,6 @@ namespace Lotto
                 reader.Close();
                 cmdStr ="INSERT INTO `ziehungszahlen`(`id_ziehung`, `zahl1`, `zahl2`, `zahl3`, `zahl4`, `zahl5`, `zahl6`, `superZahl`) VALUES (";
                 cmdStr += autoID + ',';
-                foreach (int zahl in ziehung.ZiehungsZahlen)
-                {
-                    cmdStr += zahl + ',';
-                }
                 cmdStr += ziehung.Superzahl + ");";
                 _mySqlCommand.CommandText = cmdStr;
 

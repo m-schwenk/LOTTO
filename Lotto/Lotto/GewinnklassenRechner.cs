@@ -49,7 +49,7 @@ namespace Lotto
 		    foreach (KeyValuePair<int, SortedSet<int>> spiel in lottoschein.Spiele)
 			{
 				var fuegeKommaEin = false;
-			   
+			    myStringBuilder.Clear();
 				var counter = 0;
 				myStringBuilder.Append(spiel.Key + "." + "  ");
 
