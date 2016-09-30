@@ -69,7 +69,7 @@ namespace Lotto
                     lotto.Add(i,foo);
                 }
             }
-          
+          _database.SchreibeLottoscheinInDb(lotto);
           
         }
 

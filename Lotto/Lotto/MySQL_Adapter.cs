@@ -74,7 +74,88 @@ namespace Lotto
 
         public void SchreibeLottoscheinInDb(Lottoschein lottoschein)
         {
-            throw new NotImplementedException();
+            string cmdStr = "INSERT INTO `lottoschein`(`losNummer`, `laufZeit`, `samstagZiehung`, `mittwochZiehung`, `spiel77`, `super6`) VALUES (";
+            cmdStr += lottoschein.Losnummer + ',';
+            cmdStr += lottoschein.Laufzeit.ToString() + ',';
+            cmdStr += lottoschein.Samstag.ToString() + ',';
+            cmdStr += lottoschein.Mittwoch.ToString() + ',';
+            cmdStr += lottoschein.spiel77.ToString() + ',';
+            cmdStr += lottoschein.super6.ToString() + ");";
+            _mySqlCommand.CommandText = cmdStr;
+            if (_mySqlCommand.ExecuteNonQuery() > 0)
+            {
+                 _mySqlCommand.CommandText = "SELECT LAST_INSERT_ID();";
+                MySqlDataReader reader = _mySqlCommand.ExecuteReader();
+                reader.Read();
+                int autoIDLottoschein = reader.GetInt32(0);
+                reader.Close();
+                DateTime date = lottoschein.Abgabedatum;
+//                Ziehung z = new Ziehung(null, -1, lottoschein.Abgabedatum, null, null);
+                string prefix ="INSERT INTO `ziehung`(`datum`, `istSamstag`) VALUES (";
+                List<int> ziehungen = new List<int>();
+                int i = lottoschein.Laufzeit;
+                while (i > 0)
+                {
+                    switch (date.DayOfWeek)
+                    {
+                            case DayOfWeek.Wednesday:
+                            if (lottoschein.Mittwoch)
+                            {
+                                int id = SqlInsert(prefix + sqlDate(date) + ',' + "false" + ");");
+                                if (id > 0)
+                                {
+                                    ziehungen.Add(id);
+                                }
+                            }
+                            date = date.AddDays(3); //advance to saturday
+                            break;
+                            case DayOfWeek.Saturday:
+                            if (lottoschein.Samstag)
+                            {
+                                int id = SqlInsert(prefix + sqlDate(date) + ',' + "true" + ");");
+                                if (id > 0)
+                                {
+                                    ziehungen.Add(id);
+                                }
+                            }
+                            date = date.AddDays(4); // advance to wednesday
+                            i--;
+                            break;
+                            default:
+                            if (date.DayOfWeek == DayOfWeek.Sunday)
+                            {
+                                i--;
+                            }
+                            date = date.AddDays(1);
+                            break;
+                    }
+                }
+                prefix = "INSERT INTO `gehoertzu`(`id_lottoschein`, `id_ziehung`) VALUES (" + autoIDLottoschein + ',';
+                foreach (int autoIDZiehung in ziehungen)
+                {
+                    SqlInsert(prefix + autoIDZiehung + ");");
+                }
+            }
+        }
+
+        private string sqlDate(DateTime date)
+        {
+            return "'" + date.ToString("yyyy-MM-dd") + "'";
+        }
+
+        private int SqlInsert(string cmdStr)
+        {
+            int autoID = 0;
+            _mySqlCommand.CommandText = cmdStr;
+            if (_mySqlCommand.ExecuteNonQuery() > 0)
+            {
+                _mySqlCommand.CommandText = "SELECT LAST_INSERT_ID();";
+                MySqlDataReader reader = _mySqlCommand.ExecuteReader();
+                reader.Read();
+                autoID = reader.GetInt32(0);
+                reader.Close();
+            }
+            return autoID;
         }
 
         public void SchreibeZiehungInDb(Ziehung ziehung)
@@ -93,8 +174,16 @@ namespace Lotto
                 MySqlDataReader reader = _mySqlCommand.ExecuteReader();
                 reader.Read();
                 int autoID = reader.GetInt32(0);
-                MessageBox.Show(autoID.ToString());
                 reader.Close();
+                cmdStr ="INSERT INTO `ziehungszahlen`(`id_ziehung`, `zahl1`, `zahl2`, `zahl3`, `zahl4`, `zahl5`, `zahl6`, `superZahl`) VALUES (";
+                cmdStr += autoID + ',';
+                foreach (int zahl in ziehung.ZiehungsZahlen)
+                {
+                    cmdStr += zahl + ',';
+                }
+                cmdStr += ziehung.Superzahl + ");";
+                _mySqlCommand.CommandText = cmdStr;
+
             }
         }
     }
