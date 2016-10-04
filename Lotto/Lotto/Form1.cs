@@ -20,6 +20,16 @@ namespace Lotto
         {
             InitializeComponent();
             SetControlVisibility();
+            Abgabedatum.Value = DateTime.Today;
+            aktuelleZiehung.Value = DateTime.Today;
+            laufzeit.SelectedIndex = 0;
+            DateTime date = DateTime.Today;
+            while ((date.DayOfWeek != DayOfWeek.Wednesday) && (date.DayOfWeek != DayOfWeek.Saturday))
+            {
+                date = date.AddDays(1);
+            }
+            Mittwoch.Checked = date.DayOfWeek == DayOfWeek.Wednesday;
+            Samstag.Checked = date.DayOfWeek == DayOfWeek.Saturday;
         }
 
         private void SetControlVisibility()
@@ -51,7 +61,24 @@ namespace Lotto
 
         private void abschickenbutton_Click(object sender, EventArgs e)
         {
-            Lottoschein lotto = new Lottoschein(losnummer.Text);
+            int lz = 1;
+            try
+            {
+                lz = Convert.ToInt32(laufzeit.SelectedItem);
+            }
+            catch (Exception)
+            {
+                
+            }
+            Lottoschein lotto = new Lottoschein(
+                losnummer.Text,
+                Abgabedatum.Value,
+                Samstag.Checked,
+                Mittwoch.Checked,
+                spiel77.Checked,
+                super6.Checked,
+                lz
+                );
       
             for (int i=0; i < tippsPanel.RowCount; i++)
             {
@@ -69,7 +96,8 @@ namespace Lotto
                     lotto.Add(i,foo);
                 }
             }
-//          _database.SchreibeLottoscheinInDb(lotto);
+
+            _database.SchreibeLottoscheinInDb(lotto);
           
         }
 

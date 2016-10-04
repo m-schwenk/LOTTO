@@ -138,6 +138,12 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.Mittwoch = new System.Windows.Forms.CheckBox();
+            this.Samstag = new System.Windows.Forms.CheckBox();
+            this.super6 = new System.Windows.Forms.CheckBox();
+            this.spiel77 = new System.Windows.Forms.CheckBox();
+            this.laufzeit = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tippsPanel.SuspendLayout();
@@ -237,11 +243,17 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(339, 439);
+            this.tabControl1.Size = new System.Drawing.Size(339, 459);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.laufzeit);
+            this.tabPage1.Controls.Add(this.spiel77);
+            this.tabPage1.Controls.Add(this.super6);
+            this.tabPage1.Controls.Add(this.Samstag);
+            this.tabPage1.Controls.Add(this.Mittwoch);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.Abgabedatum);
             this.tabPage1.Controls.Add(this.abschickenButton);
@@ -251,7 +263,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(331, 413);
+            this.tabPage1.Size = new System.Drawing.Size(331, 433);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mein Lottoschein";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -275,7 +287,8 @@
             // 
             // abschickenButton
             // 
-            this.abschickenButton.Location = new System.Drawing.Point(241, 384);
+            this.abschickenButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.abschickenButton.Location = new System.Drawing.Point(243, 404);
             this.abschickenButton.Name = "abschickenButton";
             this.abschickenButton.Size = new System.Drawing.Size(82, 23);
             this.abschickenButton.TabIndex = 99;
@@ -285,7 +298,7 @@
             // 
             // losnummer
             // 
-            this.losnummer.Location = new System.Drawing.Point(3, 384);
+            this.losnummer.Location = new System.Drawing.Point(6, 385);
             this.losnummer.MaxLength = 7;
             this.losnummer.Name = "losnummer";
             this.losnummer.Size = new System.Drawing.Size(100, 20);
@@ -2403,11 +2416,77 @@
             this.tabPage5.Text = "About";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // Mittwoch
+            // 
+            this.Mittwoch.AutoSize = true;
+            this.Mittwoch.Location = new System.Drawing.Point(127, 368);
+            this.Mittwoch.Name = "Mittwoch";
+            this.Mittwoch.Size = new System.Drawing.Size(75, 19);
+            this.Mittwoch.TabIndex = 102;
+            this.Mittwoch.Text = "Mittwoch";
+            this.Mittwoch.UseVisualStyleBackColor = true;
+            // 
+            // Samstag
+            // 
+            this.Samstag.AutoSize = true;
+            this.Samstag.Location = new System.Drawing.Point(127, 388);
+            this.Samstag.Name = "Samstag";
+            this.Samstag.Size = new System.Drawing.Size(75, 19);
+            this.Samstag.TabIndex = 103;
+            this.Samstag.Text = "Samstag";
+            this.Samstag.UseVisualStyleBackColor = true;
+            // 
+            // super6
+            // 
+            this.super6.AutoSize = true;
+            this.super6.Location = new System.Drawing.Point(7, 411);
+            this.super6.Name = "super6";
+            this.super6.Size = new System.Drawing.Size(69, 19);
+            this.super6.TabIndex = 104;
+            this.super6.Text = "Super 6";
+            this.super6.UseVisualStyleBackColor = true;
+            // 
+            // spiel77
+            // 
+            this.spiel77.AutoSize = true;
+            this.spiel77.Location = new System.Drawing.Point(82, 411);
+            this.spiel77.Name = "spiel77";
+            this.spiel77.Size = new System.Drawing.Size(71, 19);
+            this.spiel77.TabIndex = 105;
+            this.spiel77.Text = "Spiel 77";
+            this.spiel77.UseVisualStyleBackColor = true;
+            // 
+            // laufzeit
+            // 
+            this.laufzeit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.laufzeit.FormattingEnabled = true;
+            this.laufzeit.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "8"});
+            this.laufzeit.Location = new System.Drawing.Point(209, 345);
+            this.laufzeit.Name = "laufzeit";
+            this.laufzeit.Size = new System.Drawing.Size(121, 21);
+            this.laufzeit.Sorted = true;
+            this.laufzeit.TabIndex = 106;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(209, 327);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 15);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "Laufzeit:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 463);
+            this.ClientSize = new System.Drawing.Size(363, 483);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
@@ -2616,6 +2695,12 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.NumericUpDown superzahl;
+        private System.Windows.Forms.CheckBox spiel77;
+        private System.Windows.Forms.CheckBox super6;
+        private System.Windows.Forms.CheckBox Samstag;
+        private System.Windows.Forms.CheckBox Mittwoch;
+        private System.Windows.Forms.ComboBox laufzeit;
+        private System.Windows.Forms.Label label3;
     }
 }
 
