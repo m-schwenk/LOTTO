@@ -127,23 +127,23 @@
             this.aktuelleZiehung = new System.Windows.Forms.DateTimePicker();
             this.auswertungsButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown79 = new System.Windows.Forms.NumericUpDown();
+            this.superzahl = new System.Windows.Forms.NumericUpDown();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.Mittwoch = new System.Windows.Forms.CheckBox();
+            this.Samstag = new System.Windows.Forms.CheckBox();
+            this.super6 = new System.Windows.Forms.CheckBox();
+            this.spiel77 = new System.Windows.Forms.CheckBox();
+            this.laufzeit = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tippsPanel.SuspendLayout();
@@ -221,13 +221,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown79)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.superzahl)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -243,11 +243,17 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(334, 439);
+            this.tabControl1.Size = new System.Drawing.Size(339, 459);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.laufzeit);
+            this.tabPage1.Controls.Add(this.spiel77);
+            this.tabPage1.Controls.Add(this.super6);
+            this.tabPage1.Controls.Add(this.Samstag);
+            this.tabPage1.Controls.Add(this.Mittwoch);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.Abgabedatum);
             this.tabPage1.Controls.Add(this.abschickenButton);
@@ -257,7 +263,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(326, 413);
+            this.tabPage1.Size = new System.Drawing.Size(331, 433);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mein Lottoschein";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -281,7 +287,8 @@
             // 
             // abschickenButton
             // 
-            this.abschickenButton.Location = new System.Drawing.Point(241, 384);
+            this.abschickenButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.abschickenButton.Location = new System.Drawing.Point(243, 404);
             this.abschickenButton.Name = "abschickenButton";
             this.abschickenButton.Size = new System.Drawing.Size(82, 23);
             this.abschickenButton.TabIndex = 99;
@@ -291,7 +298,7 @@
             // 
             // losnummer
             // 
-            this.losnummer.Location = new System.Drawing.Point(3, 384);
+            this.losnummer.Location = new System.Drawing.Point(6, 385);
             this.losnummer.MaxLength = 7;
             this.losnummer.Name = "losnummer";
             this.losnummer.Size = new System.Drawing.Size(100, 20);
@@ -2145,18 +2152,21 @@
             this.tabPage2.Controls.Add(this.aktuelleZiehung);
             this.tabPage2.Controls.Add(this.auswertungsButton);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.superzahl);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(326, 413);
+            this.tabPage2.Size = new System.Drawing.Size(331, 413);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Aktuelle Ziehung";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 160);
+            this.label11.Location = new System.Drawing.Point(3, 98);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 15);
             this.label11.TabIndex = 5;
@@ -2167,175 +2177,67 @@
             this.ergebnisse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ergebnisse.Location = new System.Drawing.Point(6, 178);
+            this.ergebnisse.Location = new System.Drawing.Point(6, 119);
             this.ergebnisse.Multiline = true;
             this.ergebnisse.Name = "ergebnisse";
             this.ergebnisse.ReadOnly = true;
-            this.ergebnisse.Size = new System.Drawing.Size(314, 229);
+            this.ergebnisse.Size = new System.Drawing.Size(319, 288);
             this.ergebnisse.TabIndex = 4;
             this.ergebnisse.WordWrap = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 82);
+            this.label10.Location = new System.Drawing.Point(129, 41);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(169, 15);
+            this.label10.Size = new System.Drawing.Size(96, 15);
             this.label10.TabIndex = 3;
-            this.label10.Text = "Datum der aktuellen Ziehung:";
+            this.label10.Text = "Ziehungsdatum:";
             // 
             // aktuelleZiehung
             // 
-            this.aktuelleZiehung.Location = new System.Drawing.Point(6, 99);
+            this.aktuelleZiehung.Location = new System.Drawing.Point(125, 59);
             this.aktuelleZiehung.Name = "aktuelleZiehung";
             this.aktuelleZiehung.Size = new System.Drawing.Size(200, 20);
             this.aktuelleZiehung.TabIndex = 2;
             // 
             // auswertungsButton
             // 
-            this.auswertungsButton.Location = new System.Drawing.Point(219, 149);
+            this.auswertungsButton.Location = new System.Drawing.Point(224, 90);
             this.auswertungsButton.Name = "auswertungsButton";
             this.auswertungsButton.Size = new System.Drawing.Size(101, 23);
             this.auswertungsButton.TabIndex = 1;
             this.auswertungsButton.Text = "Auswertung\r\n";
             this.auswertungsButton.UseVisualStyleBackColor = true;
+            this.auswertungsButton.Click += new System.EventHandler(this.auswertungsButton_Click);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 7;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.tableLayoutPanel1.Controls.Add(this.label5, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown6, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown5, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown4, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown3, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown79, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 27);
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown6, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown5, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown4, 3, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(314, 52);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(319, 32);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(135, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 15);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Zahl3\r\n";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(91, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Zahl2\r\n\r\n";
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Location = new System.Drawing.Point(47, 19);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
-            49,
-            0,
-            0,
-            0});
-            this.numericUpDown6.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown6.TabIndex = 6;
-            this.numericUpDown6.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Location = new System.Drawing.Point(3, 19);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown5.TabIndex = 5;
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(91, 19);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            49,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown4.TabIndex = 4;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(179, 19);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            49,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(223, 19);
+            this.numericUpDown2.Location = new System.Drawing.Point(56, 3);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             49,
             0,
@@ -2350,7 +2252,112 @@
             this.numericUpDown2.Size = new System.Drawing.Size(38, 20);
             this.numericUpDown2.TabIndex = 2;
             this.numericUpDown2.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 3);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            49,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDown1.TabIndex = 1;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Location = new System.Drawing.Point(268, 3);
+            this.numericUpDown6.Maximum = new decimal(new int[] {
+            49,
+            0,
+            0,
+            0});
+            this.numericUpDown6.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDown6.TabIndex = 6;
+            this.numericUpDown6.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(109, 3);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            49,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDown3.TabIndex = 3;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Location = new System.Drawing.Point(215, 3);
+            this.numericUpDown5.Maximum = new decimal(new int[] {
+            49,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDown5.TabIndex = 5;
+            this.numericUpDown5.Value = new decimal(new int[] {
             5,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(162, 3);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            49,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDown4.TabIndex = 4;
+            this.numericUpDown4.Value = new decimal(new int[] {
+            4,
             0,
             0,
             0});
@@ -2361,98 +2368,32 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(3, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.Size = new System.Drawing.Size(66, 15);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Superzahl";
+            this.label2.Text = "Superzahl:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // superzahl
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 0);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Zahl1\r\n";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(179, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 15);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Zahl4";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(223, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 15);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Zahl5";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(267, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 15);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Zahl6";
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(267, 19);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            49,
+            this.superzahl.Location = new System.Drawing.Point(9, 59);
+            this.superzahl.Maximum = new decimal(new int[] {
+            9,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(44, 20);
-            this.numericUpDown3.TabIndex = 3;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown79
-            // 
-            this.numericUpDown79.Location = new System.Drawing.Point(135, 19);
-            this.numericUpDown79.Maximum = new decimal(new int[] {
-            49,
-            0,
-            0,
-            0});
-            this.numericUpDown79.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown79.Name = "numericUpDown79";
-            this.numericUpDown79.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown79.TabIndex = 7;
-            this.numericUpDown79.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.superzahl.Name = "superzahl";
+            this.superzahl.Size = new System.Drawing.Size(38, 20);
+            this.superzahl.TabIndex = 7;
+            this.superzahl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(326, 413);
+            this.tabPage3.Size = new System.Drawing.Size(331, 413);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Statistik";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -2461,7 +2402,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(326, 413);
+            this.tabPage4.Size = new System.Drawing.Size(331, 413);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Optionen";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -2470,21 +2411,87 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(326, 413);
+            this.tabPage5.Size = new System.Drawing.Size(331, 413);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "About";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // Mittwoch
+            // 
+            this.Mittwoch.AutoSize = true;
+            this.Mittwoch.Location = new System.Drawing.Point(127, 368);
+            this.Mittwoch.Name = "Mittwoch";
+            this.Mittwoch.Size = new System.Drawing.Size(75, 19);
+            this.Mittwoch.TabIndex = 102;
+            this.Mittwoch.Text = "Mittwoch";
+            this.Mittwoch.UseVisualStyleBackColor = true;
+            // 
+            // Samstag
+            // 
+            this.Samstag.AutoSize = true;
+            this.Samstag.Location = new System.Drawing.Point(127, 388);
+            this.Samstag.Name = "Samstag";
+            this.Samstag.Size = new System.Drawing.Size(75, 19);
+            this.Samstag.TabIndex = 103;
+            this.Samstag.Text = "Samstag";
+            this.Samstag.UseVisualStyleBackColor = true;
+            // 
+            // super6
+            // 
+            this.super6.AutoSize = true;
+            this.super6.Location = new System.Drawing.Point(7, 411);
+            this.super6.Name = "super6";
+            this.super6.Size = new System.Drawing.Size(69, 19);
+            this.super6.TabIndex = 104;
+            this.super6.Text = "Super 6";
+            this.super6.UseVisualStyleBackColor = true;
+            // 
+            // spiel77
+            // 
+            this.spiel77.AutoSize = true;
+            this.spiel77.Location = new System.Drawing.Point(82, 411);
+            this.spiel77.Name = "spiel77";
+            this.spiel77.Size = new System.Drawing.Size(71, 19);
+            this.spiel77.TabIndex = 105;
+            this.spiel77.Text = "Spiel 77";
+            this.spiel77.UseVisualStyleBackColor = true;
+            // 
+            // laufzeit
+            // 
+            this.laufzeit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.laufzeit.FormattingEnabled = true;
+            this.laufzeit.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "8"});
+            this.laufzeit.Location = new System.Drawing.Point(209, 345);
+            this.laufzeit.Name = "laufzeit";
+            this.laufzeit.Size = new System.Drawing.Size(121, 21);
+            this.laufzeit.Sorted = true;
+            this.laufzeit.TabIndex = 106;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(209, 327);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 15);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "Laufzeit:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 463);
+            this.ClientSize = new System.Drawing.Size(363, 483);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Lotto 6 aus 49";
+            this.Text = "Lotto Pro";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -2565,14 +2572,13 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown79)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.superzahl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2675,17 +2681,10 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown79;
         private System.Windows.Forms.NumericUpDown numericUpDown6;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button auswertungsButton;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker Abgabedatum;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -2695,6 +2694,13 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.NumericUpDown superzahl;
+        private System.Windows.Forms.CheckBox spiel77;
+        private System.Windows.Forms.CheckBox super6;
+        private System.Windows.Forms.CheckBox Samstag;
+        private System.Windows.Forms.CheckBox Mittwoch;
+        private System.Windows.Forms.ComboBox laufzeit;
+        private System.Windows.Forms.Label label3;
     }
 }
 

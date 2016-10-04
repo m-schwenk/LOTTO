@@ -10,6 +10,8 @@ namespace Lotto
         public DateTime Abgabedatum { get; set; }
         public bool Samstag { get; set; }
         public bool Mittwoch { get; set; }
+        public bool spiel77 { get; set; }
+        public bool super6 { get; set; }
         public int Laufzeit { get; set; }
         private readonly Dictionary<int, SortedSet<int>> _spiele = new Dictionary<int, SortedSet<int>>(12);
 
@@ -51,19 +53,72 @@ namespace Lotto
             }
         }
 
-//        public IEnumerable<ISet<DateTime>> Ziehungstermine
-//        {
-//            get
-//            {
-//                
-//            }
-//        }
+        public IEnumerable<DateTime> Ziehungstermine
+        {
+            get
+            {
+                ISet<DateTime> ziehungen = new SortedSet<DateTime>();
+                DateTime date = Abgabedatum;
+
+                int i = Laufzeit;
+                while (i > 0)
+                {
+                    switch (date.DayOfWeek)
+                    {
+                        case DayOfWeek.Wednesday:
+                            if (Mittwoch)
+                            {
+                                ziehungen.Add(date);
+                            }
+                            date = date.AddDays(3); //advance to saturday
+                            break;
+
+                        case DayOfWeek.Saturday:
+                            if (Samstag)
+                            {
+                                    ziehungen.Add(date);
+                            }
+                            date = date.AddDays(4); // advance to wednesday
+                            i--;
+                            break;
+
+                        default:
+                            if (date.DayOfWeek == DayOfWeek.Sunday)
+                            {
+                                i--;
+                            }
+                            date = date.AddDays(1);
+                            break;
+                    }
+                }
+
+                foreach (DateTime ziehung in ziehungen)
+                {
+                    yield return ziehung;
+                }
+            }
+        }
 
         // Konstruktor: 
 
-        public Lottoschein(string losnummer)
+        public Lottoschein(string losnummer) : this(losnummer, DateTime.Today)
         {
-            Losnummer = losnummer;
+        }
+
+        public Lottoschein(string losnummer, DateTime abgabedatum)
+            : this(losnummer, abgabedatum, (abgabedatum.DayOfWeek >= DayOfWeek.Thursday), (abgabedatum.DayOfWeek <= DayOfWeek.Wednesday), false, false, 1)
+        {
+        }
+
+        public Lottoschein(string losnummer, DateTime abgabedatum, bool samstag, bool mittwoch, bool spiel77, bool super6, int laufzeit)
+        {
+            _losnummer = losnummer;
+            Abgabedatum = abgabedatum;
+            Samstag = samstag;
+            Mittwoch = mittwoch;
+            this.spiel77 = spiel77;
+            this.super6 = super6;
+            Laufzeit = laufzeit;
         }
 
         /// <summary>

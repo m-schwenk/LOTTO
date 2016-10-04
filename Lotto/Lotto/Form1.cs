@@ -14,12 +14,22 @@ namespace Lotto
 {
     public partial class Form1 : Form
     {
-        private readonly IDatabaseAdapter _database = new DBDummy();
+        private readonly IDatabaseAdapter _database = new MySQL_Adapter();
 
         public Form1()
         {
             InitializeComponent();
             SetControlVisibility();
+            Abgabedatum.Value = DateTime.Today;
+            aktuelleZiehung.Value = DateTime.Today;
+            laufzeit.SelectedIndex = 0;
+            DateTime date = DateTime.Today;
+            while ((date.DayOfWeek != DayOfWeek.Wednesday) && (date.DayOfWeek != DayOfWeek.Saturday))
+            {
+                date = date.AddDays(1);
+            }
+            Mittwoch.Checked = date.DayOfWeek == DayOfWeek.Wednesday;
+            Samstag.Checked = date.DayOfWeek == DayOfWeek.Saturday;
         }
 
         private void SetControlVisibility()
@@ -51,7 +61,24 @@ namespace Lotto
 
         private void abschickenbutton_Click(object sender, EventArgs e)
         {
-            Lottoschein lotto = new Lottoschein(losnummer.Text);
+            int lz = 1;
+            try
+            {
+                lz = Convert.ToInt32(laufzeit.SelectedItem);
+            }
+            catch (Exception)
+            {
+                
+            }
+            Lottoschein lotto = new Lottoschein(
+                losnummer.Text,
+                Abgabedatum.Value,
+                Samstag.Checked,
+                Mittwoch.Checked,
+                spiel77.Checked,
+                super6.Checked,
+                lz
+                );
       
             for (int i=0; i < tippsPanel.RowCount; i++)
             {
@@ -69,34 +96,56 @@ namespace Lotto
                     lotto.Add(i,foo);
                 }
             }
+
+            _database.SchreibeLottoscheinInDb(lotto);
           
-          
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ergebnisse.Text = "";
-             int [] foo= new int[6];
-             int superzahl = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(0, 1)).Value);
-
-             for (int i = 1; i < tableLayoutPanel1.ColumnCount; i++)
-            {
-                foo[i - 1] = Convert.ToInt32(((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 1)).Value);
-            }
-
-            GewinnklassenRechner gew_kl = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), foo, superzahl);
-            foreach (string s in gew_kl.GetErgebnisse())
-            {
-                ergebnisse.AppendText(s);
-            }
-
-
-
         }
 
         private void numericUpDown_ValueChanged(object sender, EventArgs e)
         {
             //todo pruefen ob neuer wert schon in zeile vorhanden, wenn ja wert in-/dekrementieren bis passender wert gefunden
+        }
+
+        private void auswertungsButton_Click(object sender, EventArgs e)
+        {
+            ergebnisse.Text = "";
+            int [] ziehungZahlen = new int[6];
+            int ziehungSuperzahl = (int) this.superzahl.Value;
+
+             for (int i = 0; i < tableLayoutPanel1.ColumnCount; i++)
+            {
+                ziehungZahlen[i] = (int)((NumericUpDown)tableLayoutPanel1.GetControlFromPosition(i, 0)).Value;
+            }
+
+             Lottoschein lotto = new Lottoschein(losnummer.Text);
+
+             for (int i = 0; i < tippsPanel.RowCount; i++)
+             {
+                 if (((CheckBox)tippsPanel.GetControlFromPosition(0, i)).Checked == true)
+                 {
+                     int[] foo = new int[6];
+
+                     for (int j = 1; j < tippsPanel.ColumnCount; j++)
+                     {
+
+                         foo[j - 1] = Convert.ToInt32(((NumericUpDown)tippsPanel.GetControlFromPosition(j, i)).Value);
+                     }
+
+                     lotto.Add(i+1, foo);
+                 }
+             }
+
+            Ziehung z = new Ziehung(ziehungZahlen, ziehungSuperzahl, aktuelleZiehung.Value);
+
+            GewinnklassenRechner ziehungsAuswertung = new GewinnklassenRechner(lotto, ziehungZahlen, ziehungSuperzahl);
+//            GewinnklassenRechner ziehungsAuswertung = new GewinnklassenRechner(_database.LeseLottoscheinAusDb(), ziehungZahlen, ziehungSuperzahl);
+            foreach (string s in ziehungsAuswertung.GetErgebnisse())
+            {
+                ergebnisse.AppendText(s + "\n");
+            }
+
+//            _database.SchreibeZiehungInDb(z);
+
         }
 
 
