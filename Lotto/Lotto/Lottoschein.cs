@@ -53,13 +53,51 @@ namespace Lotto
             }
         }
 
-//        public IEnumerable<ISet<DateTime>> Ziehungstermine
-//        {
-//            get
-//            {
-//                
-//            }
-//        }
+        public IEnumerable<DateTime> Ziehungstermine
+        {
+            get
+            {
+                ISet<DateTime> ziehungen = new SortedSet<DateTime>();
+                DateTime date = Abgabedatum;
+
+                int i = Laufzeit;
+                while (i > 0)
+                {
+                    switch (date.DayOfWeek)
+                    {
+                        case DayOfWeek.Wednesday:
+                            if (Mittwoch)
+                            {
+                                ziehungen.Add(date);
+                            }
+                            date = date.AddDays(3); //advance to saturday
+                            break;
+
+                        case DayOfWeek.Saturday:
+                            if (Samstag)
+                            {
+                                    ziehungen.Add(date);
+                            }
+                            date = date.AddDays(4); // advance to wednesday
+                            i--;
+                            break;
+
+                        default:
+                            if (date.DayOfWeek == DayOfWeek.Sunday)
+                            {
+                                i--;
+                            }
+                            date = date.AddDays(1);
+                            break;
+                    }
+                }
+
+                foreach (DateTime ziehung in ziehungen)
+                {
+                    yield return ziehung;
+                }
+            }
+        }
 
         // Konstruktor: 
 

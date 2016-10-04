@@ -89,45 +89,15 @@ namespace Lotto
                 reader.Read();
                 int autoIDLottoschein = reader.GetInt32(0);
                 reader.Close();
-                DateTime date = lottoschein.Abgabedatum;
-//                Ziehung z = new Ziehung(null, -1, lottoschein.Abgabedatum, null, null);
-                string prefix ="INSERT INTO `ziehung`(`datum`, `istSamstag`) VALUES (";
+                string prefix = "INSERT INTO `ziehung`(`datum`, `istSamstag`) VALUES (";
                 List<int> ziehungen = new List<int>();
-                int i = lottoschein.Laufzeit;
-                while (i > 0)
+                    
+                foreach (DateTime date in lottoschein.Ziehungstermine)
                 {
-                    switch (date.DayOfWeek)
+                    int id = SqlInsert(prefix + sqlDate(date) + ',' + (date.DayOfWeek == DayOfWeek.Saturday).ToString() + ");");
+                    if (id > 0)
                     {
-                            case DayOfWeek.Wednesday:
-                            if (lottoschein.Mittwoch)
-                            {
-                                int id = SqlInsert(prefix + sqlDate(date) + ',' + "false" + ");");
-                                if (id > 0)
-                                {
-                                    ziehungen.Add(id);
-                                }
-                            }
-                            date = date.AddDays(3); //advance to saturday
-                            break;
-                            case DayOfWeek.Saturday:
-                            if (lottoschein.Samstag)
-                            {
-                                int id = SqlInsert(prefix + sqlDate(date) + ',' + "true" + ");");
-                                if (id > 0)
-                                {
-                                    ziehungen.Add(id);
-                                }
-                            }
-                            date = date.AddDays(4); // advance to wednesday
-                            i--;
-                            break;
-                            default:
-                            if (date.DayOfWeek == DayOfWeek.Sunday)
-                            {
-                                i--;
-                            }
-                            date = date.AddDays(1);
-                            break;
+                        ziehungen.Add(id);
                     }
                 }
                 prefix = "INSERT INTO `gehoertzu`(`id_lottoschein`, `id_ziehung`) VALUES (" + autoIDLottoschein + ',';
